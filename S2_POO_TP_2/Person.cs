@@ -14,6 +14,8 @@ namespace S2_POO_TP_1
 
         private Int32 Age;
 
+        private List<Car> Cars = new List<Car>();
+
         public void SetName(string name)
         {
             Name = name;
@@ -44,9 +46,24 @@ namespace S2_POO_TP_1
             return Age;
         }
 
+        public void AddCar(Car car)
+        {
+            Cars.Add(car);
+        }
+
+        public void RemoveCar(Car car)
+        {
+            Cars.Remove(car);
+        }
+
         public void Print()
         {
             Console.WriteLine($"Le nom de la personne est {Name}, sont prenom {FirstName} et sont age {Age}.");
+            Console.WriteLine("Liste de voiture de la personne : ");
+            foreach (var item in Cars)
+            {
+                Console.WriteLine($"{item.GetModel()}");
+            }
         }
 
     }

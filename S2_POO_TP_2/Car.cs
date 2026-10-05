@@ -95,7 +95,7 @@ namespace S2_POO_TP_1
 
         public void Print()
         {
-            Console.WriteLine($"La voiture a été enregistre le {Registration}, à pour modele : {Model}, la plaque est {Brand}, le kilometrage est {KLM}, la date de mise en service est : {OriginalInServiceDate}, le nombre de chevaux : {Power} et elle appartient à {Owner.GetName()}");
+            Console.WriteLine($"La voiture a été enregistre en {Registration}, à pour modele : {Model}, la plaque est {Brand}, le kilometrage est {KLM}, la date de mise en service est : {OriginalInServiceDate}, le nombre de chevaux : {Power} et elle appartient à {Owner.GetName()}");
         }
     }
 }
