@@ -11,9 +11,15 @@ namespace S2_POO_TP_POINT
         public int Abscisse { get; set; }
         public int Ordonnee { get; set; }
 
-        public Point()
+        public Point(int abs, int ordo)
         {
+            Abscisse = abs;
+            Ordonnee = ordo;
+        }
 
+        public double Norme(int x, int y)
+        {
+            return Math.Sqrt(Math.Pow((x - Abscisse), 2) * Math.Pow(y- Ordonnee, 2));
         }
     }
 }
