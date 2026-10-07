@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S2_POO_TP_DES", "S2_POO_TP_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S2_POO_TP_CERCLE", "S2_POO_TP_CERCLE\S2_POO_TP_CERCLE.csproj", "{EAFEBBEC-A563-4A8B-8642-9FC911EAD0E3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S2_POO_TP_4", "S2_POO_TP_4\S2_POO_TP_4.csproj", "{A6AF6E4D-B2AE-45C6-B4C7-E9A419FF9B0E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{EAFEBBEC-A563-4A8B-8642-9FC911EAD0E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EAFEBBEC-A563-4A8B-8642-9FC911EAD0E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EAFEBBEC-A563-4A8B-8642-9FC911EAD0E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6AF6E4D-B2AE-45C6-B4C7-E9A419FF9B0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6AF6E4D-B2AE-45C6-B4C7-E9A419FF9B0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6AF6E4D-B2AE-45C6-B4C7-E9A419FF9B0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6AF6E4D-B2AE-45C6-B4C7-E9A419FF9B0E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

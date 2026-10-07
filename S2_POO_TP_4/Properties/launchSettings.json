@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "S2_POO_TP_4": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
