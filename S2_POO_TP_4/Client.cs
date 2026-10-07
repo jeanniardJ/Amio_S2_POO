@@ -31,12 +31,13 @@ namespace S2_POO_TP_4
         public void DropOffCar(Garage garage, Car car)
         {
             garage.AddCar(car);
+            Cars.Remove(car);
         }
 
-        //Reprendre la voiture du garage
-        public void PickUpCar(Garage garage)
+        //Reprendre la voiture du garage, que si le garagiste la réparé.
+        public void PickUpCar(Garage garage, Car car)
         {
-
+            garage.
         }
     }
 }

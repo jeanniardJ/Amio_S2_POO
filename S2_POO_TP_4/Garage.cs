@@ -22,20 +22,32 @@ namespace S2_POO_TP_4
             Console.WriteLine($"Le nom de mon entreprise est {Name} et mon numéro de siret est : {Siret}");
         }
 
+        //Ajoute un garagiste au garage
         public void AddGaragiste(Garagiste garagiste)
         {
             Garagistes.Add(garagiste);
         }
 
-        //Gére la liste de voiture à reparer et assigner la voiture à un garagiste
+        //Gére la liste de voiture à reparer 
         public void AddCar(Car car)
         {
             Cars.Add(car);
         }
 
-        public void AssignToGaragiste(Car car)
+        public void AfficheCars()
         {
+            Console.WriteLine("Liste des voitures en attent de reparations : ");
+            foreach (var item in Cars)
+            {
+                Console.WriteLine($"Immatricule : {item.Immatricul}");
+            }
+        }
 
+        //Assigner la voiture à un garagiste
+        public void AssignToGaragiste(Garagiste garagiste, Car car)
+        {
+            garagiste.AddCars(car);
+            Cars.Remove(car);
         }
 
         public static void Repeindre(Car voitureA, string color)
