@@ -22,7 +22,7 @@ namespace S2_POO
         {
             if(_fd >= 0)
             {
-                NativeMethods.close(_fd);
+                //NativeMethods.close(_fd);
                 _fd = -1;
             }
         }
