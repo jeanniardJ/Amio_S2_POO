@@ -30,6 +30,7 @@ namespace S2_POO_TP_4
         //Donner la voiture au garage
         public void DropOffCar(Garage garage, Car car)
         {
+            //Verifier que la voiture est toujours en possession du client
             garage.AddCar(car);
             Cars.Remove(car);
         }
@@ -37,7 +38,19 @@ namespace S2_POO_TP_4
         //Reprendre la voiture du garage, que si le garagiste la réparé.
         public void PickUpCar(Garage garage, Car car)
         {
-            garage.
+            //Attention à verifier que l'objet est de nouveau dans la liste de cars dans garage
+            //(il faut que le garagiste es rendu la voiture au garage)
+            if (garage.Cars.Contains(car))
+            {
+                garage.RemoveCar(car);
+                Cars.Add(car);
+                Console.WriteLine("La voiture à été recuperer !");
+            }
+            else
+            {
+                Console.WriteLine("La voiture est toujour en reparation !");
+            }
+            
         }
     }
 }

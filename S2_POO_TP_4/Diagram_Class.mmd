@@ -1,0 +1,37 @@
+---
+references:
+  - "File: /Program.cs"
+generationTime: 2026-10-07T14:23:09.247Z
+---
+classDiagram
+    class Program {
+        -Main(String[] args) void$
+    }
+    class Garage {
+        +Garage(String name, String identifier)
+        +AddGaragiste(Garagiste garagiste)
+        +AfficheCars() void
+        +AssignToGaragiste(Garagiste garagiste, Car car) void
+    }
+    class Garagiste {
+        +Garagiste(String lastName, String firstName, Garage garage)
+        +AfficheCars() void
+    }
+    class Client {
+        +Client(String lastName, String firstName)
+        +AddCar(Car car) void
+        +AfficheCars() void
+        +DropOffCar(Garage garage, Car car) void
+    }
+    class Car {
+        +Car(String registration, Client client)
+    }
+
+    Program ..> Garage : creates and calls
+    Program ..> Garagiste : creates and calls
+    Program ..> Client : creates and calls
+    Program ..> Car : creates
+    Garage "1" --> "*" Garagiste : registers
+    Client "1" --> "*" Car : registers
+    Garage --> Car : receives and assigns
+    Garagiste --> Car : assigned to

@@ -7,7 +7,7 @@
             Garage garageA = new Garage("Gros Boucher S.A.S", "345 130 488 00017");
             Garage garageB = new Garage("Brun SARL", "872 249 552 00672");
 
-            Garagiste garagisteA = new Garagiste("Lefèvre", "Thomas");
+            Garagiste garagisteA = new Garagiste("Lefèvre", "Thomas", garageA);
 
             garageA.AddGaragiste(garagisteA);
 
@@ -27,6 +27,19 @@
 
             //Affiche la liste des voitures en attentes de reparation ou de d'être récuperer
             garageA.AfficheCars();
+
+            garageA.AssignToGaragiste(garagisteA, voitureA);
+
+            garageA.AfficheCars();
+
+            garagisteA.AfficheCars();
+
+            clientA.PickUpCar(garageA, voitureA);
+
+            //Voiture rendu
+            garagisteA.RemoveCars(voitureA);
+            Console.WriteLine("La voiture a été réparé !");
+            clientA.PickUpCar(garageA, voitureA);
 
             //Garage.Repeindre(voitureA);
 

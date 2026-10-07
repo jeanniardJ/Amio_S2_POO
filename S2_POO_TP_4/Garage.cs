@@ -10,7 +10,7 @@ namespace S2_POO_TP_4
     //classe dérivée
     internal class Garage : Entreprise
     {
-        private List<Car> Cars = new List<Car>();
+        public List<Car> Cars { get; } = new List<Car>();
         private List<Garagiste> Garagistes = new List<Garagiste>();
 
         public Garage(string name, string siret) : base(name, siret){
@@ -32,6 +32,11 @@ namespace S2_POO_TP_4
         public void AddCar(Car car)
         {
             Cars.Add(car);
+        }
+
+        public void RemoveCar(Car car)
+        {
+            Cars.Remove(car);
         }
 
         public void AfficheCars()
