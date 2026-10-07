@@ -4,18 +4,38 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Donner l'abscisse du centre:");
-            int absc = Console.Read();
-            Console.WriteLine("Donner l'ordonné du centre:");
-            int ordon = Console.Read();
-            Console.WriteLine("Donner le rayon:");
-            int rayon = Console.Read();
+            int abscCercle;
+            int ordonCercle;
+            int rayonCercle;
+            int absPoint;
+            int ordonPoint;
 
-            Cercle cercleA = new(5, 4, 6);
+            Console.Write("Donner l'abscisse du centre: ");
+            int.TryParse(Console.ReadLine(), out abscCercle);
+            Console.Write("Donner l'ordonné du centre: ");
+            int.TryParse(Console.ReadLine(), out ordonCercle);
+            Console.Write("Donner le rayon: ");
+            int.TryParse(Console.ReadLine(), out rayonCercle);
 
-            Point ptA = new(2,6);
+            Cercle cercleA = new(abscCercle, ordonCercle, rayonCercle);
+
+            cercleA.Affiche();
+            cercleA.GetPerimetre();
+            cercleA.GetSurface();
+
+            Console.Write("Donner un point :");
+            Console.Write("\nx: ");
+            int.TryParse(Console.ReadLine(), out absPoint);
+            Console.Write("y: ");
+            int.TryParse(Console.ReadLine(), out ordonPoint);
+
+            Point ptA = new(absPoint,ordonPoint);
 
             ptA.Afficher();
+
+            //Console.WriteLine(cercleA.Appartient(ptA));
+
+            Console.WriteLine($"Le point {(cercleA.Appartient(ptA) ? "appartient" : "n'appartient pas")} au cercle.");
         }
     }
 }

@@ -8,8 +8,8 @@ namespace S2_POO_TP_CERCLE
 {
     internal class Point
     {
-        private float Abscisse;
-        private float Ordonnee;
+        public float Abscisse { get; private set; }
+        public float Ordonnee { get; }
 
         public Point(int x, int y)
         {
