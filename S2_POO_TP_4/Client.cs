@@ -8,6 +8,35 @@ namespace S2_POO_TP_4
 {
     internal class Client : Person
     {
+        List<Car> Cars = new List<Car>();
 
+        public Client(string name, string firstname) : base(name, firstname){
+        }
+
+        public void AddCar(Car car)
+        {
+            Cars.Add(car);
+        }
+
+        public void AfficheCars()
+        {
+            Console.WriteLine($"Liste de voiture m'appartenant moi {Firstname}, {Name} : ");
+            foreach (var item in Cars)
+            {
+                Console.WriteLine($"Immatriculation : {item.Immatricul}");
+            }
+        }
+
+        //Donner la voiture au garage
+        public void DropOffCar(Garage garage, Car car)
+        {
+            garage.AddCar(car);
+        }
+
+        //Reprendre la voiture du garage
+        public void PickUpCar(Garage garage)
+        {
+
+        }
     }
 }

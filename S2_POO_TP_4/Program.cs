@@ -5,15 +5,27 @@
         static void Main(string[] args)
         {
             Entreprise garageA = new Garage("Gros Boucher S.A.S", "345 130 488 00017");
-            Car voitureA = new();
+            Entreprise garageB = new Garage("Brun SARL", "872 249 552 00672");
 
-            Garage.Repeindre(voitureA);
+            Person garagisteA = new Garagiste("Lefèvre", "Thomas");
 
-            Console.WriteLine(voitureA.Color);
+            Client clientA = new Client("Doe", "John");
 
-            garageA.Print();
+            Car voitureA = new Car("AB-123-CD", clientA);
+            Car voitureB = new Car("EF-456-GH", clientA);
+
+            clientA.AddCar(voitureA);
+            clientA.AddCar(voitureB);
+
+            clientA.AfficheCars();
+
+            //Garage.Repeindre(voitureA);
+
+            //Console.WriteLine(voitureA.Color);
+
+            //garageA.Print();
         }
 
-        
+
     }
 }

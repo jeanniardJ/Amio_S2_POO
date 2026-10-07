@@ -10,9 +10,10 @@ namespace S2_POO_TP_4
     //classe dérivée
     internal class Garage : Entreprise
     {
-        private List<Car> Car;
+        private List<Car> Cars = new List<Car>();
+        private List<Garagiste> Garagistes = new List<Garagiste>();
 
-        public Garage(string name, string siret) : base(name, siret){      
+        public Garage(string name, string siret) : base(name, siret){
         }
         
         public override void Print()
@@ -21,11 +22,25 @@ namespace S2_POO_TP_4
             Console.WriteLine($"Le nom de mon entreprise est {Name} et mon numéro de siret est : {Siret}");
         }
 
-        //Gére la liste de voiture à reparer et assigner la voiture à un garagiste
-
-        public static void Repeindre(Car voitureA)
+        public void AddGaragiste(Garagiste garagiste)
         {
-            voitureA.Color = "Noir";
+            Garagistes.Add(garagiste);
+        }
+
+        //Gére la liste de voiture à reparer et assigner la voiture à un garagiste
+        public void AddCar(Car car)
+        {
+            Cars.Add(car);
+        }
+
+        public void AssignToGaragiste(Car car)
+        {
+
+        }
+
+        public static void Repeindre(Car voitureA, string color)
+        {
+            voitureA.Color = color;
         }
     }
 }
