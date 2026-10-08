@@ -15,8 +15,10 @@
 
             //rect.affiche(25, 60, rect.surface(25, 60));
 
-            //Cercle c1;
-            ////Console.WriteLine(c1.Rayon);
+            Cercle c1 = new Cercle();
+            Console.WriteLine(c1.GetRayon());
+            Console.WriteLine(c1.GetRayon());
+            Console.WriteLine(c1.GetRayon("Bonjour"));
 
             ////A
             //A a1, a2;
@@ -37,10 +39,10 @@
             //int n2 = 2;
             //float resultat = n1 / n2;
 
-            //A
-            A a = new();
-            
-            a.Print();
+            ////A
+            //A a = new();
+
+            //a.Print();
         }
     }
 }
