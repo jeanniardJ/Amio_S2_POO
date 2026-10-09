@@ -10,6 +10,10 @@ namespace S2_POO
     {
         private int Rayon;
 
+        public Cercle(Cercle cercle)
+        {
+            Rayon = cercle.Rayon;
+        }
 
         public bool GetRayon(string message)
         {

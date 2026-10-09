@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,8 @@ namespace S2_POO_TP_5
         [Required]
         public string Firstname { get; }
 
+        private Collection<Vehicle> Vehicles = new Collection<Vehicle>();
+        
         public Person(string name, string firstname)
         {
             Name = name;
@@ -30,5 +33,7 @@ namespace S2_POO_TP_5
         {
             Console.WriteLine("Je suis une personne !!!");
         }
+
+
     }
 }

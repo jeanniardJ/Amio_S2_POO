@@ -10,13 +10,20 @@ namespace S2_POO_TP_5
     internal class Vehicle
     {
         [Required]
-        public string Immatricul { get; }
+        public string Immatricul { get; set; }
 
         public string Color { get; set; }
 
-        [Required]
-        public Person Owner { get; }
+        public int Dommage { get; private set; } = 100;
 
-        public int Dommage { get; set; }
+        public Vehicle(string immatricul)
+        {
+            Immatricul = immatricul;
+        }
+
+        public void SetDommage(int dommage)
+        {
+            Dommage -= dommage;
+        }
     }
 }

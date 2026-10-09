@@ -9,15 +9,11 @@ namespace S2_POO_TP_5
 {
     internal class Car : Vehicle
     {
-        //Construtor
-        public Car()
-        {
-            Color = "White";
-        }
+        [Required]
+        public Person Owner { get; }
 
-        public Car(string immatricul, Person owner)
+        public Car(string immatricul, Person owner): base(immatricul)
         {
-            Immatricul = immatricul;
             Owner = owner;
         }
     }
