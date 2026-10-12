@@ -45,6 +45,8 @@
                 Console.WriteLine($"Immatricule : {item.Immatricul}");
             }
 
+            garageA.DropOffVehicleForRepair(voitureB);
+
             //Il faut gere le transfere de l'objet véhicule du client, au garage qui l'assigne au garagiste
             //Le client depose un véhicule à réparer au garage, puis l'assigne à un garagiste.
             //Le garage doit pouvoir renvoier la liste de véhicule 

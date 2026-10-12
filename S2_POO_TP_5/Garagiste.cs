@@ -31,17 +31,5 @@ namespace S2_POO_TP_5
         {
             Console.WriteLine("Je suis un garagiste !!!");
         }
-
-        public void TransferVehicleToGaragiste(Vehicle vehicle)
-        {
-            if (!Vehicles.Contains(vehicle))
-            {
-
-            }
-            else
-            {
-                Console.WriteLine("Le véhicule est déja en possesion du garagiste");
-            }
-        }
     }
 }

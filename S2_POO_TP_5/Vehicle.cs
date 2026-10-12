@@ -14,7 +14,7 @@ namespace S2_POO_TP_5
 
         public string Color { get; set; }
 
-        public int Dommage { get; private set; } = 100;
+        public int Dommage { get; private set; } = 0;
 
         [Required]
         public Person Owner { get; }

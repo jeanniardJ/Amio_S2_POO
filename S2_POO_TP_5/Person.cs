@@ -64,7 +64,7 @@ namespace S2_POO_TP_5
         /// </summary>
         /// <param name="person">Est soit une instance garagiste ou client</param>
         /// <param name="vehicle"></param>
-        public void TransferVehicleTo(Person person, Vehicle vehicle)
+        public virtual void TransferVehicleTo(Person person, Vehicle vehicle)
         {
             if (!person.Vehicles.Contains(vehicle))
             {
