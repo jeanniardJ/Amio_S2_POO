@@ -16,11 +16,19 @@ namespace S2_POO_TP_5
 
         public int Dommage { get; private set; } = 100;
 
-        public Vehicle(string immatricul)
+        [Required]
+        public Person Owner { get; }
+
+        public Vehicle(string immatricul, Person owner)
         {
             Immatricul = immatricul;
+            Owner = owner;
+            Color = "Black";
+
+            owner.AddVehicle(this);
         }
 
+        //Ajoute des dégats au véhicule
         public void SetDommage(int dommage)
         {
             Dommage -= dommage;

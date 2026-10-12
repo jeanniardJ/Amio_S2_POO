@@ -19,11 +19,29 @@ namespace S2_POO_TP_5
         public Garagiste(string name, string firstname, Garage garage) : base(name, firstname)
         {
             Garage = garage;
+            garage.AddGaragiste(this);
+        }
+
+        public override void Print()
+        {
+            Console.WriteLine($"Mon nom est {Name} et mon prénom est {Firstname}, je suis garagiste dans le garage {Garage.Name}");
         }
 
         public override void Informations()
         {
             Console.WriteLine("Je suis un garagiste !!!");
+        }
+
+        public void TransferVehicleToGaragiste(Vehicle vehicle)
+        {
+            if (!Vehicles.Contains(vehicle))
+            {
+
+            }
+            else
+            {
+                Console.WriteLine("Le véhicule est déja en possesion du garagiste");
+            }
         }
     }
 }

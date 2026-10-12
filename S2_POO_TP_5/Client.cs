@@ -9,9 +9,14 @@ namespace S2_POO_TP_5
     internal class Client : Person
     {
 
-        public Client(string name, string firstname, Vehicle vehicle) : base(name, firstname)
+        public Client(string name, string firstname) : base(name, firstname)
         {
 
+        }
+
+        public override void Print()
+        {
+            Console.WriteLine($"Mon nom est {Name} et mon prénom est {Firstname}");
         }
 
         public override void Informations()

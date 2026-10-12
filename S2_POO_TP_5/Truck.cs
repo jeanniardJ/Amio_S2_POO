@@ -9,12 +9,10 @@ namespace S2_POO_TP_5
 {
     internal class Truck : Vehicle
     {
-        [Required]
-        public Person Owner { get; }
-
-        public Truck(string immatricul, Person owner) : base(immatricul)
+        public Truck(string immatricul, Person owner) : base(immatricul, owner)
         {
-            Owner = owner;
         }
+
+
     }
 }

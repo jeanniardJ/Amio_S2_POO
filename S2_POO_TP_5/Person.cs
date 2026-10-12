@@ -34,6 +34,52 @@ namespace S2_POO_TP_5
             Console.WriteLine("Je suis une personne !!!");
         }
 
+        public void AddVehicle(Vehicle vehicle)
+        {
+            if (!Vehicles.Contains(vehicle))
+            {
+                Vehicles.Add(vehicle);
+            }
+            else
+            {
+                Console.WriteLine("Le véhicule existe déja dans la liste !");
+            }
+        }
 
+        //Il faut retirer le véhicule dela liste de la personne qui la possede
+        public void RemoveVehicule(Vehicle vehicule)
+        {
+            if (!Vehicles.Contains(vehicule))
+            {
+                Vehicles.Remove(vehicule);
+            }
+            else
+            {
+                Console.WriteLine("Le véhicule n'est en possesion de cette personne !");
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour switcher le véhicule  d'une personne à une autre
+        /// </summary>
+        /// <param name="person">Est soit une instance garagiste ou client</param>
+        /// <param name="vehicle"></param>
+        public void TransferVehicleTo(Person person, Vehicle vehicle)
+        {
+            if (!person.Vehicles.Contains(vehicle))
+            {
+                person.AddVehicle(vehicle);
+                RemoveVehicule(vehicle);
+            }
+            else
+            {
+                Console.WriteLine($"Le véhicule est déja en possesion dela personne {person.Firstname} !");
+            }
+        }
+
+        public Collection<Vehicle> GetVehiclesByOwner()
+        {
+            return Vehicles;
+        }
     }
 }
