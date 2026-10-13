@@ -4,7 +4,14 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Building building = new("3 rue des Fleurs, 12100 Millau");
+
+            building.ToString();
+
+            House house = new("5 rue des Marmottes, 23500 Lyon", 3);
+
+            house.ToString();
+
         }
     }
 }
