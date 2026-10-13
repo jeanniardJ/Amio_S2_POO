@@ -8,7 +8,8 @@
             Garage garageB = new Garage("Brun SARL", "872 249 552 00672");
 
             Console.WriteLine("Liste de garagistes : \n");
-            Garagiste garagisteA = new Garagiste("Lefèvre", "Thomas", garageA);
+            
+            Garagiste garagisteA = new Garagiste("Lefèvre", "Thomas", 20, garageA);
 
             garagisteA.Print();
 
@@ -45,11 +46,47 @@
                 Console.WriteLine($"Immatricule : {item.Immatricul}");
             }
 
-            garageA.DropOffVehicleForRepair(voitureB);
+            Console.WriteLine("\n----------------------------------");
+            Console.WriteLine("\nApporter une voiture à réparer !");
+            Console.WriteLine("\n----------------------------------");
 
             //Il faut gere le transfere de l'objet véhicule du client, au garage qui l'assigne au garagiste
             //Le client depose un véhicule à réparer au garage, puis l'assigne à un garagiste.
-            //Le garage doit pouvoir renvoier la liste de véhicule 
+
+            garageA.DropOffVehicleForRepair(voitureA);
+
+            voitureA.SetDommage(2);
+
+            Console.WriteLine($"\nLes dégats sur la voiture {voitureA.Immatricul} est de {voitureA.Dommage}\n");
+
+            Console.WriteLine($"\nLe(s) véhicule(s) de {personB.Firstname} {personB.Name} sont :");
+
+            foreach (var item in personA.GetVehiclesByOwner())
+            {
+                Console.WriteLine($"Mon véhicule est de type : {item.GetType().Name}");
+                Console.WriteLine($"Dommage de mon véhicule : {item.Dommage}");
+                Console.WriteLine($"Immatricule : {item.Immatricul}");
+            }
+
+            Console.WriteLine("\n");
+
+            garageA.DropOffVehicleForRepair(voitureA);
+
+            Console.WriteLine("\n----------------------------------\n");
+
+            //Le garage doit pouvoir renvoier la liste de véhicule
+            Console.WriteLine($"La liste de voiture en cours de reparation dans ce garage {garageA.Name} : ");
+
+            garageA.GetVehiclesInRepair();
+
+            Console.WriteLine($"\nLe(s) véhicule(s) de {personB.Firstname} {personB.Name} sont :");
+
+            foreach (var item in personA.GetVehiclesByOwner())
+            {
+                Console.WriteLine($"Mon véhicule est de type : {item.GetType().Name}");
+                Console.WriteLine($"Dommage de mon véhicule : {item.Dommage}");
+                Console.WriteLine($"Immatricule : {item.Immatricul}");
+            }
         }
     }
 }

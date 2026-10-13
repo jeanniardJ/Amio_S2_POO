@@ -12,12 +12,11 @@ namespace S2_POO_TP_5
     {
         private List<Garagiste> Garagistes = new List<Garagiste>();
 
-        //private List<Vehicle> VehiclesToRepair = new List<Vehicle>();
+        private int TimeRepairCar = 90;
 
-        public Garage(string name, string siret) : base(name, siret)
-        {
+        private int TimeRepairTruck = 120;
 
-        }
+        public Garage(string name, string siret) : base(name, siret) { }
 
         public override void Print()
         {
@@ -49,8 +48,9 @@ namespace S2_POO_TP_5
             {
                 if (Garagistes.Where(g => g.GetVehiclesByOwner().Contains(vehicle)).Count() == 0)
                 {
-                    
+                    Garagiste garagiste = AssignVehicleToMechanic(vehicle);
 
+                    vehicle.Owner.TransferVehicleTo(garagiste, vehicle);
                 }
                 else
                 {
@@ -61,23 +61,32 @@ namespace S2_POO_TP_5
             {
                 Console.WriteLine("Le véhicule n'a pas besoin de réparation !");
             }
-            //if(!VehiclesToRepair.Contains(vehicle))
-            //{
-            //    VehiclesToRepair.Add(vehicle);
-            //    //Il faut déposseder la person qui a le véhicule 
-            //}
-            //else
-            //{
-            //    Console.WriteLine("Le véhicule est déja possedé par le garage !");
-            //}
         }
 
-        private void AssignVehicleToMechanic(Vehicle vehicle)
+        private Garagiste AssignVehicleToMechanic(Vehicle vehicle)
         {
             Random random = new Random();
             int index = random.Next(0, Garagistes.Count);
             //Randomiser l'assignation d'un véhicule à un garagiste
-            Garagistes[index].AddVehicle(vehicle);
+            return Garagistes[index];
         }
+
+        public void GetVehiclesInRepair()
+        {
+            //Je retourne les garagistes qui on un véhicule en leurs possesion à reparer 
+            foreach (Garagiste garagistes in Garagistes.Where(g => g.GetVehiclesByOwner() != null))
+            {
+                Console.WriteLine($"Le garagiste {garagistes.Name} a ces véhicules : ");
+                foreach (Vehicle vehicle in garagistes.GetVehiclesByOwner())
+                {
+                    Console.WriteLine($"Immatriculation : {vehicle.Immatricul}");
+                    //Estimation de temps pour la reparation
+                    int timeRepair = vehicle.GetType().Name == "Car" ? (vehicle.Dommage * TimeRepairCar) * (2 - (garagistes.Skills / 100)) : (vehicle.Dommage * TimeRepairTruck) * (2 - (garagistes.Skills / 100));
+                    Console.WriteLine($"Temp donner pour réparer le véhicule : {timeRepair} minute(s)");
+                }
+            }
+        }
+
+        //Méthode de calcul du temps de réparation du véhicule
     }
 }

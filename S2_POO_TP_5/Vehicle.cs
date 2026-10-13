@@ -31,7 +31,7 @@ namespace S2_POO_TP_5
         //Ajoute des dégats au véhicule
         public void SetDommage(int dommage)
         {
-            Dommage -= dommage;
+            Dommage += dommage;
         }
     }
 }

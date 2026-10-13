@@ -12,12 +12,20 @@ namespace S2_POO_TP_5
         //voiture : 1 % = 1h30 * ( 2 - (skills/100))
         // 1% de dégat sur une voiture est égale à 1h30 de réparation,
         // multiplier par (2 - (skill/100)), le skill en pourcentage 
-        private int Skills { get; set; }
+        public int Skills { get; }
 
         private Garage Garage;
 
-        public Garagiste(string name, string firstname, Garage garage) : base(name, firstname)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="firstname"></param>
+        /// <param name="skills"></param>
+        /// <param name="garage"></param>
+        public Garagiste(string name, string firstname, int skills, Garage garage) : base(name, firstname)
         {
+            Skills = skills;
             Garage = garage;
             garage.AddGaragiste(this);
         }

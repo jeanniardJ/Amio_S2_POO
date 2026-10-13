@@ -49,13 +49,13 @@ namespace S2_POO_TP_5
         //Il faut retirer le véhicule dela liste de la personne qui la possede
         public void RemoveVehicule(Vehicle vehicule)
         {
-            if (!Vehicles.Contains(vehicule))
+            if (Vehicles.Contains(vehicule))
             {
                 Vehicles.Remove(vehicule);
             }
             else
             {
-                Console.WriteLine("Le véhicule n'est en possesion de cette personne !");
+                Console.WriteLine("Le véhicule n'est pas en possesion de cette personne !");
             }
         }
 
@@ -73,7 +73,7 @@ namespace S2_POO_TP_5
             }
             else
             {
-                Console.WriteLine($"Le véhicule est déja en possesion dela personne {person.Firstname} !");
+                Console.WriteLine($"Le véhicule est déja en possesion de cette personne {person.Firstname} !");
             }
         }
 
