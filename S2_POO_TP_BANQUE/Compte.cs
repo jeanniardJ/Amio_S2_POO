@@ -8,11 +8,11 @@ namespace S2_POO_TP_BANQUE
 {
     internal class Compte
     {
-        public static int Code { get; private set; } = 0;
+        public static int Code { get; private set; } = 1001;
 
         public int NumorCompte { get; }
 
-        public decimal Solde { get; private set; } = 0;
+        public decimal Solde { get; protected set; } = 0;
 
         public DateTime DateCreatedCompte { get; } = DateTime.Now;
 
@@ -21,12 +21,10 @@ namespace S2_POO_TP_BANQUE
         private static List<Compte> Comptes = new List<Compte>();
 
         //Initialisation d'une instance objet Compte avec le constructor
-        public Compte(int numeroCpt, Client client, decimal depotSomme = 0)
+        public Compte(Client client, decimal depotSomme = 0)
         {
-            Code++;
-
             Client = client;
-            NumorCompte = numeroCpt;
+            NumorCompte = Code++;
             Solde = depotSomme;
 
             Comptes.Add(this);//Faire une verif que le compte existe pas déja
@@ -40,13 +38,14 @@ namespace S2_POO_TP_BANQUE
             info += $"\tAppartient à {Client.FirstName} {Client.LastName}\n";
             info += $"\tCIN : {Client.CIN}\n";
             info += $"\tTél : {Client.Tel}\n";
-
+            info += $"\tLe type de compte est : {this.GetType().Name}\n";
+                
             Console.WriteLine(info);
         }
 
         public static void NbCompt()
         {
-            Console.WriteLine($"{Code}");
+            Console.WriteLine($"{Comptes.Count()}");
         } 
 
         public void Crediter(decimal somme)
@@ -55,10 +54,18 @@ namespace S2_POO_TP_BANQUE
         }
 
         //Move somme de compte à compte à faire par l'id du compte
-        public void Crediter(decimal somme, Compte compte)
+        public void Crediter(decimal somme, int numeroCpt)
         {
-            compte.Crediter(somme);
-            Solde -= somme; 
+            if (Comptes.Find(c => c.NumorCompte == numeroCpt) != null)
+            {
+                Comptes.Find(c => c.NumorCompte == numeroCpt).Crediter(somme);
+                Solde -= somme;
+            }
+            else
+            {
+                Console.Error.WriteLine("Error: La somme n'a pas été créditer sur le compte du destinater");
+            }
+            
         }
 
         public void Debiter(decimal somme)
@@ -67,11 +74,18 @@ namespace S2_POO_TP_BANQUE
         }
 
         //Move somme de compte à compte à faire par l'id du compte
-        public void Debiter(decimal somme, Compte compte)
+        public void Debiter(decimal somme, int numeroCpt)
         {
             //débitant le compte et créditant le compte passé en paramètre
-            compte.Debiter(somme);
-            Solde += somme;
+            if(Comptes.Find(c => c.NumorCompte == numeroCpt) != null)
+            {
+                Comptes.Find(c => c.NumorCompte == numeroCpt).Debiter(somme);
+                Solde += somme;
+            }
+            else
+            {
+                Console.Error.WriteLine("Error: La somme n'a pas été débiter sur le compte du destinater");
+            }
         }
 
         public void AfficheComptes()
@@ -81,5 +95,6 @@ namespace S2_POO_TP_BANQUE
                 item.Afficher();
             }
         }
+
     }
 }

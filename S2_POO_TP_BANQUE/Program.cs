@@ -24,58 +24,65 @@
 
             Compte[] comptes = {
                 // clients[0] → 2 comptes
-                new Compte(1001, clients[0], 1500.50m),
-                new Compte(1002, clients[0], 850.00m),
+                new CompteCourant(clients[0], 1500.50m),
+                new CompteEpargne(clients[0], 850.00m),
 
                 // clients[1] → 1 compte
-                new Compte(1003, clients[1], 230.00m),
+                new CompteCourant(clients[1], 230.00m),
 
                 // clients[2] → 2 comptes
-                new Compte(1004, clients[2], 4500.75m),
-                new Compte(1005, clients[2], 120.00m),
+                new CompteCourant(clients[2], 4500.75m),
+                new CompteEpargne(clients[2], 120.00m),
 
                 // clients[3] → 1 compte
-                new Compte(1006, clients[3], 89.99m),
+                new CompteCourant(clients[3], 89.99m),
 
                 // clients[4] → 3 comptes
-                new Compte(1007, clients[4], 750.25m),
-                new Compte(1008, clients[4], 2000.00m),
-                new Compte(1009, clients[4]),
+                new CompteCourant(clients[4], 750.25m),
+                new CompteCourant(clients[4], 2000.00m),
+                new CompteEpargne(clients[4], 562),
 
                 // clients[5] → 1 compte
-                new Compte(1010, clients[5]),
+                new CompteEpargne(clients[5], 50),
 
                 // clients[6] → 2 comptes
-                new Compte(1011, clients[6], 3200.00m),
-                new Compte(1012, clients[6], 450.75m),
+                new CompteEpargne(clients[6], 3200.00m),
+                new CompteEpargne(clients[6], 450.75m),
 
                 // clients[7] → 1 compte
-                new Compte(1013, clients[7], 150.60m),
+                new CompteEpargne(clients[7], 150.60m),
 
                 // clients[8] → 2 comptes
-                new Compte(1014, clients[8], 1200.00m),
-                new Compte(1015, clients[8], 60.00m),
+                new CompteEpargne(clients[8], 1200.00m),
+                new CompteEpargne(clients[8], 60.00m),
 
                 // clients[9] → 1 compte
-                new Compte(1016, clients[9], 50.00m),
+                new CompteEpargne(clients[9], 50.00m),
 
                 // clients[10] → 2 comptes
-                new Compte(1017, clients[10], 6700.30m),
-                new Compte(1018, clients[10], 340.00m),
+                new CompteEpargne(clients[10], 6700.30m),
+                new CompteEpargne(clients[10], 340.00m),
 
                 // clients[11] → 1 compte
-                new Compte(1019, clients[11]),
+                new CompteEpargne(clients[11], 150),
 
                 // clients[12] → 1 compte
-                new Compte(1020, clients[12], 280.45m),
+                new CompteEpargne(clients[12], 280.45m),
 
                 // clients[13] → 2 comptes
-                new Compte(1021, clients[13], 999.99m),
-                new Compte(1022, clients[13], 75.50m),
+                new CompteEpargne(clients[13], 999.99m),
+                new Compte(clients[13], 75.50m),
 
                 // clients[14] → 1 compte
-                new Compte(1023, clients[14], 4200.00m),
+                new CompteEpargne(clients[14], 4200.00m),
             };
+
+            foreach(Compte compte in comptes)
+            {
+                compte.Afficher();
+            }
+
+            Console.WriteLine("----------------------------------");
 
             clients[0].DisplayInfo();
 
@@ -91,6 +98,8 @@
             Console.WriteLine($"\n----------------\n");
 
             comptes[0].AfficheComptes();
+
+
 
         }
     }
