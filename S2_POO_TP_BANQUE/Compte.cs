@@ -18,14 +18,15 @@ namespace S2_POO_TP_BANQUE
 
         public Client Client { get; }
 
-        private static List<Compte> Comptes = new List<Compte>();
+        public static List<Compte> Comptes { get; }  = new List<Compte>();
 
         //Initialisation d'une instance objet Compte avec le constructor
-        public Compte(Client client, decimal depotSomme = 0)
+        public Compte(Client client, DateTime DateCreated, decimal depotSomme = 0)
         {
             Client = client;
             NumorCompte = Code++;
             Solde = depotSomme;
+            DateCreatedCompte = DateCreated;
 
             Comptes.Add(this);//Faire une verif que le compte existe pas déja
         }

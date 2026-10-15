@@ -10,7 +10,7 @@ namespace S2_POO_TP_BANQUE
     {
         private int DecouvertAutorise = 300;
 
-        public CompteCourant(Client client, decimal somme) : base(client, somme)
+        public CompteCourant(Client client, DateTime dateCreated, decimal somme) : base(client, dateCreated, somme)
         {
 
         }
