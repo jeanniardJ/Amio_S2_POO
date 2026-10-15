@@ -71,11 +71,11 @@ namespace S2_POO_TP_BANQUE
                 {
                     if (item.TypeCompte == TypeCompte.CompteCourant)
                     {
-                        compteCourant = new CompteCourant(item.Client, item.DateCreatedCpt, item.Somme));
+                        compteCourant = new CompteCourant(item.Client, item.DateCreatedCpt, item.Somme);
                     }
                     else
                     {
-                        compteEpargne = new CompteEpargne(item.Client, item.DateCreatedCpt, item.Somme));
+                        compteEpargne = new CompteEpargne(item.Client, item.DateCreatedCpt, item.Somme);
                     }
                 }
                 catch (Exception e)
