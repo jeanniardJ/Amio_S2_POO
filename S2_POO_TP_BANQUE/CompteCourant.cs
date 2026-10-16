@@ -27,8 +27,10 @@ namespace S2_POO_TP_BANQUE
         //ajouter la condition de l'autorisation de découvert
         public override void Debiter(decimal somme)
         {
-            if (DecouvertAutorise <= Solde - somme)
+            if (somme < -DecouvertAutorise)
+            {
                 throw new ArgumentOutOfRangeException("Le retrait dépasse le découvert autoriser !");
+            }
 
             Solde -= somme;
         }
