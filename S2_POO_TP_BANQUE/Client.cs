@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace S2_POO_TP_BANQUE
 {
-    internal class Client
+    public class Client
     {
         public string CIN { get; }
 

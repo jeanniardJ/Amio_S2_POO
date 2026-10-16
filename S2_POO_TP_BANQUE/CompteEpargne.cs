@@ -12,14 +12,18 @@ namespace S2_POO_TP_BANQUE
         private double TauxInteret = 0.75;
         private decimal InteretsCumules;
 
-        public CompteEpargne(Client client, DateTime dateDreatedCompte, decimal depotSomme):base(client, dateDreatedCompte)
+        //Attention le constructor parent est toujours appelé avant le constructor enfants
+        public CompteEpargne(Client client, DateTime dateDreatedCompte, decimal depotSomme) : base(client, dateDreatedCompte)
         {
             if (depotSomme <= SoldeMinimal)
             {
+                Comptes.Remove(this);
                 throw new ArgumentException("Une somme minimal est obligatoir pour ouvrire un compte epargne");
             }
-
-            Solde = depotSomme;
+            else
+            {
+                Crediter(depotSomme);
+            }
         }
 
         public decimal CalculerInterets()

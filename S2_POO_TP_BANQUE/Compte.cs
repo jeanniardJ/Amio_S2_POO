@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace S2_POO_TP_BANQUE
 {
-    internal class Compte
+    public class Compte
     {
         public static int Code { get; private set; } = 1001;
 
@@ -31,7 +31,7 @@ namespace S2_POO_TP_BANQUE
             Comptes.Add(this);//Faire une verif que le compte existe pas déja
         }
 
-        public void Afficher()
+        public virtual void Afficher()
         {
             string info = $"Le numéro de compte est {NumorCompte},\n";
             info += $"\tSon solde est : {Solde}\n";
@@ -39,7 +39,6 @@ namespace S2_POO_TP_BANQUE
             info += $"\tAppartient à {Client.FirstName} {Client.LastName}\n";
             info += $"\tCIN : {Client.CIN}\n";
             info += $"\tTél : {Client.Tel}\n";
-            info += $"\tLe type de compte est : {this.GetType().Name}\n";
                 
             Console.WriteLine(info);
         }
@@ -60,7 +59,7 @@ namespace S2_POO_TP_BANQUE
             if (Comptes.Find(c => c.NumorCompte == numeroCpt) != null)
             {
                 Comptes.Find(c => c.NumorCompte == numeroCpt).Crediter(somme);
-                Solde -= somme;
+                Debiter(somme);
             }
             else
             {
@@ -69,7 +68,7 @@ namespace S2_POO_TP_BANQUE
             
         }
 
-        public void Debiter(decimal somme)
+        public virtual void Debiter(decimal somme)
         {
             Solde -= somme;
         }
@@ -81,7 +80,7 @@ namespace S2_POO_TP_BANQUE
             if(Comptes.Find(c => c.NumorCompte == numeroCpt) != null)
             {
                 Comptes.Find(c => c.NumorCompte == numeroCpt).Debiter(somme);
-                Solde += somme;
+                Crediter(somme);
             }
             else
             {
