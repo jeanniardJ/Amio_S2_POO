@@ -1,4 +1,5 @@
 ﻿using S2_POO_TP_BANQUE;
+using System.Security.Principal;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace S2_POO_TP_BANQUE_TESTS
@@ -66,6 +67,18 @@ namespace S2_POO_TP_BANQUE_TESTS
 
             decimal actual = compteCourant.Solde;
             Assert.AreEqual(expected, actual, 0.001m, "Account not debited correctly");
+        }
+
+        [TestMethod]
+        public void Debiter_ShouldThrowArgumentOutOfRange()
+        {
+            decimal beginningBalance = 1500.50m;
+            decimal debitAmount = -3000;
+
+            CompteCourant compteCourant = new(clients[0], DateAleatoire(), beginningBalance);
+
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => compteCourant.Debiter(debitAmount));
+
         }
     }
 }
