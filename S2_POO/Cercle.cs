@@ -10,6 +10,8 @@ namespace S2_POO
     {
         private int Rayon;
 
+        public Cercle() { }
+
         public Cercle(Cercle cercle)
         {
             Rayon = cercle.Rayon;

@@ -7,21 +7,21 @@ namespace S2_POO_TP_BANQUE_TESTS
     public sealed class CompteCourantTests
     {
         Client[] clients = {
-                new Client("AB123456", "Martin", "Jean", "0612345678"),
-                new Client("CD789012", "Bernard", "Sophie", "0698765432"),
-                new Client("EF345678", "Petit", "Lucas", "0711223344"),
-                new Client("GH901234", "Durand", "Emma", "0655443322"),
-                new Client("IJ567890", "Leroy", "Hugo", "0788776655"),
-                new Client("KL123789", "Moreau", "Léa", "0644556677"),
-                new Client("MN456123", "Simon", "Nathan", "0733221100"),
-                new Client("OP789456", "Laurent", "Chloé", "0622334455"),
-                new Client("QR234567", "Michel", "Louis", "0799887766"),
-                new Client("ST678901", "Garcia", "Camille", "0611009988"),
-                new Client("UV345678", "Roux", "Manon", "0755667788"),
-                new Client("WX901234", "Fournier", "Jules", "0677889900"),
-                new Client("YZ123456", "Girard", "Inès", "0744332211"),
-                new Client("AB654321", "Mercier", "Arthur", "0688990011"),
-                new Client("CD765432", "Lambert", "Jade", "0722110099"),
+                new ("AB123456", "Martin", "Jean", "0612345678"),
+                new ("CD789012", "Bernard", "Sophie", "0698765432"),
+                new ("EF345678", "Petit", "Lucas", "0711223344"),
+                new ("GH901234", "Durand", "Emma", "0655443322"),
+                new ("IJ567890", "Leroy", "Hugo", "0788776655"),
+                new ("KL123789", "Moreau", "Léa", "0644556677"),
+                new ("MN456123", "Simon", "Nathan", "0733221100"),
+                new ("OP789456", "Laurent", "Chloé", "0622334455"),
+                new ("QR234567", "Michel", "Louis", "0799887766"),
+                new ("ST678901", "Garcia", "Camille", "0611009988"),
+                new ("UV345678", "Roux", "Manon", "0755667788"),
+                new ("WX901234", "Fournier", "Jules", "0677889900"),
+                new ("YZ123456", "Girard", "Inès", "0744332211"),
+                new ("AB654321", "Mercier", "Arthur", "0688990011"),
+                new ("CD765432", "Lambert", "Jade", "0722110099"),
             };
 
         Random random = new Random();
@@ -56,7 +56,16 @@ namespace S2_POO_TP_BANQUE_TESTS
         [TestMethod]
         public void Debiter_UpdatesBalance()
         {
-            CompteCourant compteCourant = new(clients[0], DateAleatoire(), 1500.50m); 
+            decimal beginningBalance = 1500.50m;
+            decimal debitAmount = 1600.58m;
+            decimal expected = beginningBalance - debitAmount;
+
+            CompteCourant compteCourant = new(clients[0], DateAleatoire(), beginningBalance);
+
+            compteCourant.Debiter(debitAmount);
+
+            decimal actual = compteCourant.Solde;
+            Assert.AreEqual(expected, actual, 0.001m, "Account not debited correctly");
         }
     }
 }

@@ -8,8 +8,8 @@ namespace S2_POO_TP_POINT
 {
     internal class Point
     {
-        public int Abscisse { get; set; }
-        public int Ordonnee { get; set; }
+        public double Abscisse { get; set; }
+        public double Ordonnee { get; set; }
 
         public Point(int abs, int ordo)
         {
