@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace S2_POO
+namespace S2_POO.Geo_02
 {
-    internal class Personne
+    internal abstract class Forme
     {
-        public String Nom;
+        public abstract double CalculerAire();
     }
 }

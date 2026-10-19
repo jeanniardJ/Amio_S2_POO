@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace S2_POO
+namespace S2_POO.Geo_01
 {
     public class Rectangle
     {

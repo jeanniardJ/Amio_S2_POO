@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace S2_POO
+namespace S2_POO.Geo_01
 {
     internal class Cercle
     {
@@ -19,13 +19,13 @@ namespace S2_POO
 
         public bool GetRayon(string message)
         {
-            Console.WriteLine($"Sont rayon {this.Rayon}, {message}");
+            Console.WriteLine($"Sont rayon {Rayon}, {message}");
             return true;
         }
 
         public int GetRayon()
         {
-            return this.Rayon;
+            return Rayon;
         }
 
 

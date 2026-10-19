@@ -43,6 +43,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S2_POO_TP_BANQUE_TESTS", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPsPOO", "..\TPsPOO\TPsPOO\TPsPOO.csproj", "{DA6D0156-D422-37E1-7022-89B8303313FB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S2_POO_TP_ANIMAUX", "S2_POO_TP_ANIMAUX\S2_POO_TP_ANIMAUX.csproj", "{EBD571BA-E067-4067-BE68-6E7ECCB5BBFA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -129,6 +131,10 @@ Global
 		{DA6D0156-D422-37E1-7022-89B8303313FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA6D0156-D422-37E1-7022-89B8303313FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA6D0156-D422-37E1-7022-89B8303313FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBD571BA-E067-4067-BE68-6E7ECCB5BBFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBD571BA-E067-4067-BE68-6E7ECCB5BBFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBD571BA-E067-4067-BE68-6E7ECCB5BBFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBD571BA-E067-4067-BE68-6E7ECCB5BBFA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
