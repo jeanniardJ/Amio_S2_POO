@@ -31,6 +31,11 @@ namespace S2_POO_TP_BANQUE
             Comptes.Add(this);//Faire une verif que le compte existe pas déja
         }
 
+        public override string ToString()
+        {
+            return base.ToString() + ": \n\t" + Client.ToString() + "\n\t" + NumorCompte.ToString() + "\n\t" + Solde.ToString() + "\n\t" + DateCreatedCompte.ToString();
+        }
+
         public virtual void Afficher()
         {
             string info = $"Le numéro de compte est {NumorCompte},\n";

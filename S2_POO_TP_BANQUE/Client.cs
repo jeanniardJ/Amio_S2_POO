@@ -27,6 +27,11 @@ namespace S2_POO_TP_BANQUE
             Tel = tel;
         }
 
+        public override string ToString()
+        {
+            return base.ToString() + ": \n\t" + CIN.ToString() + "\n\t" + LastName.ToString() + "\n\t" + FirstName.ToString() + "\n\t" + Tel.ToString();
+         }
+
         public void DisplayInfo()
         {
             Console.WriteLine($"Le client a pour numéro de réf : {CIN}\n\t- {LastName}\n\t- {FirstName}\n\t- {Tel}");

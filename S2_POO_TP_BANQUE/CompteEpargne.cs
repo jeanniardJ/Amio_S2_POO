@@ -26,6 +26,11 @@ namespace S2_POO_TP_BANQUE
             }
         }
 
+        public override string ToString()
+        {
+            return base.ToString() + ": \n\t" + SoldeMinimal.ToString() + "\n\t" + TauxInteret.ToString() + "\n\t" + InteretsCumules.ToString();
+        }
+
         public decimal CalculerInterets()
         {
             return Solde * (decimal)TauxInteret;

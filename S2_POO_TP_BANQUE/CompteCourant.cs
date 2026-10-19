@@ -15,6 +15,11 @@ namespace S2_POO_TP_BANQUE
 
         }
 
+        public override string ToString()
+        {
+            return base.ToString() + ": \n\t" + DecouvertAutorise.ToString();
+        }
+
         public override void Afficher()
         {
             string info = $"\tLe type de compte est : {this.GetType().Name}\n";
