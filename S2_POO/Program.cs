@@ -1,5 +1,6 @@
 ﻿using S2_POO.Animals;
 using S2_POO.Geo_02;
+using S2_POO.Alphabet;
 
 namespace S2_POO
 {
@@ -64,11 +65,15 @@ namespace S2_POO
             //chienB.FaireDuBruit();
 
 
-            Forme rectangle = new Rectangle(5.5, 6.8);//Type forme, pour objet Rectangle
-            Forme cercle = new Cercle(5.3);
+            //Forme rectangle = new Rectangle(5.5, 6.8);//Type forme, pour objet Rectangle
+            //Forme cercle = new Cercle(5.3);
 
-            Console.WriteLine($"Le rectangle à pour aire : {rectangle.CalculerAire()}");
-            Console.WriteLine($"Le cercle à pour aire : {cercle.CalculerAire()}");
+            //Console.WriteLine($"Le rectangle à pour aire : {rectangle.CalculerAire()}");
+            //Console.WriteLine($"Le cercle à pour aire : {cercle.CalculerAire()}");
+
+            A b = new B();
+
+            
         }
 
     }
