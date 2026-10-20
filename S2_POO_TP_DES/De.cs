@@ -2,14 +2,14 @@
 
 internal class De
 {
-    private static int CptInstance = 1;
+    private static int CptInstance = 0;
 
     private int Valeur = 0;
     private int Numero = 0;
     
     public De()
     {
-        Numero = CptInstance++;
+        Numero = ++CptInstance;
     }
 
     public int Lancer()
