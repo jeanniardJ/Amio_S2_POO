@@ -2,8 +2,9 @@
 
 internal class De
 {
-    private int Valeur = 0;
     private static int CptInstan = 1;
+
+    private int Valeur = 0;
     private int Numero = 0;
     
     public De()
