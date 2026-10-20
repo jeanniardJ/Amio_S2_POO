@@ -9,7 +9,7 @@ internal class Program
         De deA = new();
         De deB = new();
 
-        Console.WriteLine($"Resultat du premiere dé {deA.Lancer()}, resultat du second dé {deB.Lancer()}");
+        Console.WriteLine($"Résultat du premier dé {deA.Lancer()}, résultat du second dé {deB.Lancer()}");
 
         deA.Print();
         deB.Print();
