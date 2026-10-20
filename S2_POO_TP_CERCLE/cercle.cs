@@ -1,39 +1,41 @@
-﻿namespace S2_POO_TP_CERCLE;
+﻿using System.Drawing;
+
+namespace S2_POO_TP_CERCLE;
 
 internal class Cercle
 {
-    private int Abscisse;
-    private int Ordonnee;
-    private int Rayon;
+    private readonly Point _centre;
+    private readonly double _rayon;
 
-    public Cercle(int x, int y , int rayon)
+    public Cercle(Point centre, double rayon)
     {
-        Abscisse = x;
-        Ordonnee = y;
-        Rayon = rayon;
+        _centre = centre;
+        _rayon = rayon;
     }
 
-    public void GetPerimetre()
+    public double GetPerimetre()
     {
-        Console.WriteLine($"Le périmètre du cercle est :  {(2*Math.PI*Rayon)}");
+        return 2 * Math.PI * _rayon;
     }
 
-    public void GetSurface()
+    public double GetSurface()
     {
-        Console.WriteLine($"La surface est : {(Math.PI * Math.Pow(Rayon, 2))}");
+        return Math.PI * Math.Pow(_rayon, 2);
     }
 
-    public bool Appartient(Point p)
+    public bool Appartient(Point point)
     {
-        //Verifier que les abs et les ordonnées de cercle et de point sont les même.
-        if(p.Abscisse == Ordonnee && p.Ordonnee == Rayon)
-            return true;
+        double distance_x = Math.Abs(_centre.Abscisse - point.Abscisse);
 
-        return false;
+        double distance_y = Math.Abs(_centre.Ordonnee - point.Ordonnee);
+
+        double distance = Math.Sqrt(distance_x * distance_x + distance_y * distance_y);
+
+        return distance <= _rayon;
     }
 
     public void Affiche()
     {
-        Console.WriteLine($"CERCLE({Abscisse}, {Ordonnee}, {Rayon})");
+        Console.WriteLine($"CERCLE({_centre.Abscisse}, {_centre.Ordonnee}, {_rayon})");
     }
 }

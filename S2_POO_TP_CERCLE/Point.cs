@@ -2,10 +2,10 @@
 
 internal class Point
 {
-    public float Abscisse { get; private set; }
-    public float Ordonnee { get; }
+    public double Abscisse { get; private set; }
+    public double Ordonnee { get; }
 
-    public Point(int x, int y)
+    public Point(double x, double y)
     {
         Abscisse = x;
         Ordonnee = y;
@@ -13,6 +13,6 @@ internal class Point
 
     public void Afficher()
     {
-        Console.WriteLine($"POINT({Abscisse},{Ordonnee})");
+        Console.WriteLine($"POINT({Abscisse}, {Ordonnee})");
     }
 }
