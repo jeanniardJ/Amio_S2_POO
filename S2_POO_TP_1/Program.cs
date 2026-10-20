@@ -4,12 +4,12 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        Person personne = new Person();
+        Person person = new Person();
         Car audi = new Car();
 
-        personne.Name = "Doe";
-        personne.FirstName = "John";
-        personne.Age = 32;
+        person.Name = "Doe";
+        person.FirstName = "John";
+        person.Age = 32;
 
         audi.Registration = "France";
         audi.Model = "Audi TT";
@@ -17,9 +17,9 @@ internal class Program
         audi.KLM = 56432;
         audi.OriginalInServiceDate = new DateTime(2023, 10, 5);
         audi.Power = 211;
-        audi.Owner = personne;
+        audi.Owner = person;
 
-        personne.Print();
+        person.Print();
 
         audi.Print();
     }
