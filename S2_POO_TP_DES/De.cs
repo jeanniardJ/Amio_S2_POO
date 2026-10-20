@@ -2,27 +2,27 @@
 
 internal class De
 {
-    private static int CptInstance = 0;
-    private static readonly Random Random = new();
+    private static int _cptInstance;
+    private static readonly Random _random = new();
 
-    private int Valeur = 0;
-    private int Numero = 0;
+    private int _valeur;
+    private readonly int _numero;
     
     public De()
     {
-        Numero = ++CptInstance;
+        _numero = ++_cptInstance;
     }
 
     public int Lancer()
     {
-        //retourn une valeur entre 1 à 6
-        Valeur = Random.Next(1, 7);
+        //retourne une valeur entre 1 à 6
+        _valeur = _random.Next(1, 7);
         
-        return Valeur;
+        return _valeur;
     }
 
     public void Print()
     {
-        Console.WriteLine($"Dé n°{Numero} : {Valeur}");
+        Console.WriteLine($"Dé n°{_numero} : {_valeur}");
     }
 }
