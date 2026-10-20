@@ -34,8 +34,8 @@ internal class Cercle
         return distance <= _rayon;
     }
 
-    public void Affiche()
+    public string? Affiche()
     {
-        Console.WriteLine($"CERCLE({_centre.Abscisse}, {_centre.Ordonnee}, {_rayon})");
+        return $"CERCLE({_centre.Abscisse}, {_centre.Ordonnee}, {_rayon})";
     }
 }

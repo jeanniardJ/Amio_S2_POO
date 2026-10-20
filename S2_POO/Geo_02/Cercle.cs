@@ -10,6 +10,13 @@ namespace S2_POO.Geo_02
     {
         public double Rayon { get; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="rayon"></param>
+        /// <example>
+        /// 
+        /// </example>
         public Cercle(double rayon)
         {
             Rayon = rayon;

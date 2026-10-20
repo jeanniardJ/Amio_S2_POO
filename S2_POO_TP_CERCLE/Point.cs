@@ -11,8 +11,8 @@ internal class Point
         Ordonnee = y;
     }
 
-    public void Afficher()
+    public string? Afficher()
     {
-        Console.WriteLine($"POINT({Abscisse}, {Ordonnee})");
+        return $"POINT({Abscisse}, {Ordonnee})";
     }
 }
