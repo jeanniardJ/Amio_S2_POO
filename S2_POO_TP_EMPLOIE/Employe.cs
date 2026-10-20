@@ -35,13 +35,26 @@ internal class Employe
 
     public int GetAge()
     {
-        //Calculer l'age avec la date du jour
-        return DateTime.Today.Year - BirthDate.Year;
+        int age = DateTime.Today.Year - BirthDate.Year;
+
+        if (DateTime.Today < BirthDate.AddYears(age))
+        {
+            age--;
+        }
+
+        return age;
     }
 
     public int GetSeniority()
     {
-        return DateTime.Today.Year - HireDate.Year;
+        int seniority = DateTime.Today.Year - HireDate.Year;
+
+        if (DateTime.Today < HireDate.AddYears(seniority))
+        {
+            seniority--;
+        }
+
+        return seniority;
     }
 
     public int PayRise()
