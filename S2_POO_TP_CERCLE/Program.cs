@@ -1,41 +1,40 @@
-﻿namespace S2_POO_TP_CERCLE
+﻿namespace S2_POO_TP_CERCLE;
+
+internal class Program
 {
-    internal class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            int abscCercle;
-            int ordonCercle;
-            int rayonCercle;
-            int absPoint;
-            int ordonPoint;
+        int abscCercle;
+        int ordonCercle;
+        int rayonCercle;
+        int absPoint;
+        int ordonPoint;
 
-            Console.Write("Donner l'abscisse du centre: ");
-            int.TryParse(Console.ReadLine(), out abscCercle);
-            Console.Write("Donner l'ordonné du centre: ");
-            int.TryParse(Console.ReadLine(), out ordonCercle);
-            Console.Write("Donner le rayon: ");
-            int.TryParse(Console.ReadLine(), out rayonCercle);
+        Console.Write("Donner l'abscisse du centre: ");
+        int.TryParse(Console.ReadLine(), out abscCercle);
+        Console.Write("Donner l'ordonné du centre: ");
+        int.TryParse(Console.ReadLine(), out ordonCercle);
+        Console.Write("Donner le rayon: ");
+        int.TryParse(Console.ReadLine(), out rayonCercle);
 
-            Cercle cercleA = new(abscCercle, ordonCercle, rayonCercle);
+        Cercle cercleA = new(abscCercle, ordonCercle, rayonCercle);
 
-            cercleA.Affiche();
-            cercleA.GetPerimetre();
-            cercleA.GetSurface();
+        cercleA.Affiche();
+        cercleA.GetPerimetre();
+        cercleA.GetSurface();
 
-            Console.Write("Donner un point :");
-            Console.Write("\nx: ");
-            int.TryParse(Console.ReadLine(), out absPoint);
-            Console.Write("y: ");
-            int.TryParse(Console.ReadLine(), out ordonPoint);
+        Console.Write("Donner un point :");
+        Console.Write("\nx: ");
+        int.TryParse(Console.ReadLine(), out absPoint);
+        Console.Write("y: ");
+        int.TryParse(Console.ReadLine(), out ordonPoint);
 
-            Point ptA = new(absPoint,ordonPoint);
+        Point ptA = new(absPoint,ordonPoint);
 
-            ptA.Afficher();
+        ptA.Afficher();
 
-            //Console.WriteLine(cercleA.Appartient(ptA));
+        //Console.WriteLine(cercleA.Appartient(ptA));
 
-            Console.WriteLine($"Le point {(cercleA.Appartient(ptA) ? "appartient" : "n'appartient pas")} au cercle.");
-        }
+        Console.WriteLine($"Le point {(cercleA.Appartient(ptA) ? "appartient" : "n'appartient pas")} au cercle.");
     }
 }
