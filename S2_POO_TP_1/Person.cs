@@ -2,9 +2,9 @@
 
 internal class Person
 {
-    public string Name;
+    public string? Name;
 
-    public string FirstName;
+    public string? FirstName;
 
     public Int32 Age;
 
