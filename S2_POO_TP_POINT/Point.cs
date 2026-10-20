@@ -1,25 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace S2_POO_TP_POINT;
 
-namespace S2_POO_TP_POINT
+internal class Point
 {
-    internal class Point
+    public double Abscisse { get; private set; }
+    public double Ordonne { get; private set; }
+
+    public Point(int abscisse, int ordonne)
     {
-        public double Abscisse { get; set; }
-        public double Ordonnee { get; set; }
+        Abscisse = abscisse;
+        Ordonne = ordonne;
+    }
 
-        public Point(int abs, int ordo)
-        {
-            Abscisse = abs;
-            Ordonnee = ordo;
-        }
-
-        public double Norme(int x, int y)
-        {
-            return Math.Sqrt(Math.Pow((x - Abscisse), 2) * Math.Pow(y- Ordonnee, 2));
-        }
+    public double Norme()
+    {
+        return Math.Sqrt(Math.Pow((Abscisse), 2) + Math.Pow(Ordonne, 2));
     }
 }
