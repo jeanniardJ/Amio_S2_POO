@@ -22,15 +22,15 @@ internal class Employe
 
     public void EmployeDisplayed()
     {
-        string display = "";
+        string display = $"""
+         - Matricule : {Matricule}
+         - Nom complet : {LastName.ToUpper()} {FirstName}
+         - Age : {GetAge()}
+         - Ancienneté : {GetSeniority()}
+         - Salaire : {Salary}
+        """;
 
-        display += $"Matricule {Matricule}";
-        display += $"\nNom complet : {char.ToUpper(LastName[0]) + LastName.Substring(1)} {LastName.ToUpper()}";
-        display += $"\nAge : {GetAge()}";
-        display += $"\n1nciennté : {GetSeniority()}";
-        display += $"\nSalaire : {Salary}";
-
-        Console.WriteLine(display + "\n");
+        Console.WriteLine(display);
     }
 
     public int GetAge()
