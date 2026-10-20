@@ -2,15 +2,15 @@
 
 internal class Employe
 {
-    private int Matricule;
-    private string LastName;
-    private string FirstName;
-    private DateTime BirthDate;
-    private DateTime HireDate;
-    private float Salary;
+    public int Matricule { get; private init; }
+    public string LastName { get; private init; }
+    public string FirstName { get; private init; }
+    public DateTime BirthDate { get; private init; }
+    public DateTime HireDate { get; private init; }
+    public decimal Salary { get; private set;}
   
 
-    public Employe(int matricule, string lastName, string firstName, DateTime birthDate, DateTime hireDate, int salary)
+    public Employe(int matricule, string lastName, string firstName, DateTime birthDate, DateTime hireDate, decimal salary)
     {
         Matricule = matricule;
         LastName = lastName;
@@ -57,24 +57,22 @@ internal class Employe
         return seniority;
     }
 
-    public int PayRise()
+    public void PayRise()
     {
         switch (GetSeniority())
         {
             case < 5:
                 // 2% d'augmentation
-                Salary = Salary * 1.02f;
+                Salary = Salary * 1.02M;
                 break;
             case < 10:
                 // 5% d'augmentation
-                Salary = Salary * 1.05f;
+                Salary = Salary * 1.05M;
                 break;
             case >= 10:
                 // 10% d'augmentation
-                Salary = Salary * 1.10f;
+                Salary = Salary * 1.10M;
                 break;
         }
-
-        return 1;
     }
 }
