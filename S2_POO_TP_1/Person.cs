@@ -6,7 +6,7 @@ internal class Person
 
     public string? FirstName;
 
-    public Int32 Age;
+    public int Age;
 
     public void Print()
     {
