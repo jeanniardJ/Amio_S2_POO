@@ -3,6 +3,7 @@
 internal class De
 {
     private static int CptInstance = 0;
+    private static readonly Random Random = new();
 
     private int Valeur = 0;
     private int Numero = 0;
@@ -15,7 +16,7 @@ internal class De
     public int Lancer()
     {
         //retourn une valeur entre 1 à 6
-        Valeur = new Random().Next(1, 6);
+        Valeur = Random.Next(1, 7);
         
         return Valeur;
     }
