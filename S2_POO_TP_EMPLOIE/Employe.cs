@@ -8,7 +8,7 @@ internal class Employe
     private DateTime BirthDate;
     private DateTime HireDate;
     private float Salary;
-    private DateTime DateOfDay = DateTime.Today;
+  
 
     public Employe(int matricule, string lastName, string firstName, DateTime birthDate, DateTime hireDate, int salary)
     {
@@ -36,12 +36,12 @@ internal class Employe
     public int GetAge()
     {
         //Calculer l'age avec la date du jour
-        return DateOfDay.Year - BirthDate.Year;
+        return DateTime.Today.Year - BirthDate.Year;
     }
 
     public int GetSeniority()
     {
-        return DateOfDay.Year - HireDate.Year;
+        return DateTime.Today.Year - HireDate.Year;
     }
 
     public int PayRise()
