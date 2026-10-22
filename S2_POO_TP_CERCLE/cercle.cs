@@ -1,46 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
-namespace S2_POO_TP_CERCLE
+namespace S2_POO_TP_CERCLE;
+
+internal class Cercle
 {
-    internal class Cercle
+    private readonly Point _centre;
+    private readonly double _rayon;
+
+    public Cercle(Point centre, double rayon)
     {
-        private int Abscisse;
-        private int Ordonnee;
-        private int Rayon;
+        _centre = centre;
+        _rayon = rayon;
+    }
 
-        public Cercle(int x, int y , int rayon)
-        {
-            Abscisse = x;
-            Ordonnee = y;
-            Rayon = rayon;
-        }
+    public double GetPerimetre()
+    {
+        return 2 * Math.PI * _rayon;
+    }
 
-        public void GetPerimetre()
-        {
-            Console.WriteLine($"Le périmètre du cercle est :  {(2*Math.PI*Rayon)}");
-        }
+    public double GetSurface()
+    {
+        return Math.PI * Math.Pow(_rayon, 2);
+    }
 
-        public void GetSurface()
-        {
-            Console.WriteLine($"La surface est : {(Math.PI * Math.Pow(Rayon, 2))}");
-        }
+    public bool Appartient(Point point)
+    {
+        double distance_x = Math.Abs(_centre.Abscisse - point.Abscisse);
 
-        public bool Appartient(Point p)
-        {
-            //Verifier que les abs et les ordonnées de cercle et de point sont les même.
-            if(p.Abscisse == Ordonnee && p.Ordonnee == Rayon)
-                return true;
+        double distance_y = Math.Abs(_centre.Ordonnee - point.Ordonnee);
 
-            return false;
-        }
+        double distance = Math.Sqrt(distance_x * distance_x + distance_y * distance_y);
 
-        public void Affiche()
-        {
-            Console.WriteLine($"CERCLE({Abscisse}, {Ordonnee}, {Rayon})");
-        }
+        return distance <= _rayon;
+    }
+
+    public void Affiche()
+    {
+        Console.WriteLine($"CERCLE({_centre.Abscisse}, {_centre.Ordonnee}, {_rayon})");
     }
 }

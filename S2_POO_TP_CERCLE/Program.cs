@@ -1,41 +1,75 @@
-﻿namespace S2_POO_TP_CERCLE
+﻿//TODO: Rajouter une vérification des saisies  en utilisant SaisieDouble par exemple 
+//et REVOIR le program maintenant.
+namespace S2_POO_TP_CERCLE;
+
+internal class Program
 {
-    internal class Program
+    /// <summary>
+    /// Permet la saisie d'un double dans la console avec un message en paramètre de manière sécurisée
+    /// </summary>
+    /// <param name="message">Message de saisie</param>
+    /// <returns>Retourne la valeur du double saisie</returns>
+    static double SaisieDouble(string message)
     {
-        static void Main(string[] args)
+        double value = 0;
+        bool saisieValide = false;
+        do
         {
-            int abscCercle;
-            int ordonCercle;
-            int rayonCercle;
-            int absPoint;
-            int ordonPoint;
+            Console.WriteLine(message);
+            string? inputUser = Console.ReadLine();
+            if (inputUser == null)
+            {
+                Console.WriteLine("Erreur de saisie");
+            }
 
-            Console.Write("Donner l'abscisse du centre: ");
-            int.TryParse(Console.ReadLine(), out abscCercle);
-            Console.Write("Donner l'ordonné du centre: ");
-            int.TryParse(Console.ReadLine(), out ordonCercle);
-            Console.Write("Donner le rayon: ");
-            int.TryParse(Console.ReadLine(), out rayonCercle);
+            try
+            {
+                value = double.Parse(inputUser);
 
-            Cercle cercleA = new(abscCercle, ordonCercle, rayonCercle);
+                saisieValide = true;
+            }
+            catch (Exception ex)
+            {
 
-            cercleA.Affiche();
-            cercleA.GetPerimetre();
-            cercleA.GetSurface();
+                saisieValide = false;
+                Console.WriteLine("Erreur de saisie");
+            }
 
-            Console.Write("Donner un point :");
-            Console.Write("\nx: ");
-            int.TryParse(Console.ReadLine(), out absPoint);
-            Console.Write("y: ");
-            int.TryParse(Console.ReadLine(), out ordonPoint);
+        } while (!saisieValide);
 
-            Point ptA = new(absPoint,ordonPoint);
+        return value;
+    }
 
-            ptA.Afficher();
+    static void Main(string[] args)
+    {
+        double abscCercle, ordonCercle, rayonCercle, absPoint, ordonPoint;
+        
 
-            //Console.WriteLine(cercleA.Appartient(ptA));
+        Console.Write("Donner l'abscisse du centre: ");
+        double.TryParse(Console.ReadLine(), out abscCercle);
+        Console.Write("Donner l'ordonné du centre: ");
+        double.TryParse(Console.ReadLine(), out ordonCercle);
+        Console.Write("Donner le rayon: ");
+        double.TryParse(Console.ReadLine(), out rayonCercle);
 
-            Console.WriteLine($"Le point {(cercleA.Appartient(ptA) ? "appartient" : "n'appartient pas")} au cercle.");
-        }
+        Cercle cercleA = new(new(abscCercle, ordonCercle), rayonCercle);
+
+        cercleA.Affiche();
+        cercleA.GetPerimetre();
+        cercleA.GetSurface();
+
+        Console.Write("Donner un point :");
+        Console.Write("\nx: ");
+        double.TryParse(Console.ReadLine(), out absPoint);
+        Console.Write("y: ");
+        double.TryParse(Console.ReadLine(), out ordonPoint);
+
+        Point ptA = new(absPoint,ordonPoint);
+
+        ptA.Afficher();
+
+        //Console.WriteLine(cercleA.Appartient(ptA));
+
+        Console.WriteLine($"Le point {(cercleA.Appartient(ptA) ? "appartient" : "n'appartient pas")} au cercle.");
     }
 }

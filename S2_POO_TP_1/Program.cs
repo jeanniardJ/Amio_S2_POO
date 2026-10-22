@@ -1,27 +1,26 @@
-﻿namespace S2_POO_TP_1
+﻿namespace S2_POO_TP_1;
+
+internal class Program
 {
-    internal class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            Person pers = new Person();
-            Car audi = new Car();
+        Person person = new Person();
+        Car audi = new Car();
 
-            pers.Name = "Doe";
-            pers.FirstName = "John";
-            pers.Age = 32;
+        person.Name = "Doe";
+        person.FirstName = "John";
+        person.Age = 32;
 
-            audi.Registration = "France";
-            audi.Model = "Audi TT";
-            audi.Brand = "AV48CE";
-            audi.KLM = 56432;
-            audi.OriginalInServiceDate = new DateTime(2023, 10, 5);
-            audi.Power = 211;
-            audi.owner = pers;
+        audi.Registration = "France";
+        audi.Model = "Audi TT";
+        audi.Brand = "AV48CE";
+        audi.KLM = 56432;
+        audi.OriginalInServiceDate = new DateTime(2023, 10, 5);
+        audi.Power = 211;
+        audi.Owner = person;
 
-            pers.Print();
+        person.Print();
 
-            audi.Print();
-        }
+        audi.Print();
     }
 }
