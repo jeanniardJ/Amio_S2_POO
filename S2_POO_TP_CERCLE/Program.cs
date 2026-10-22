@@ -13,25 +13,16 @@ internal class Program
     {
         double value = 0;
         bool saisieValide = false;
+
         do
         {
             Console.WriteLine(message);
             string? inputUser = Console.ReadLine();
-            if (inputUser == null)
-            {
-                Console.WriteLine("Erreur de saisie");
-            }
 
-            try
-            {
-                value = double.Parse(inputUser);
+            saisieValide = double.TryParse(inputUser, out value);
 
-                saisieValide = true;
-            }
-            catch (Exception ex)
+            if (!saisieValide)
             {
-
-                saisieValide = false;
                 Console.WriteLine("Erreur de saisie");
             }
 
@@ -42,33 +33,26 @@ internal class Program
 
     static void Main(string[] args)
     {
-        double abscCercle, ordonCercle, rayonCercle, absPoint, ordonPoint;
-        
+        double abscisseCercle, ordonneCercle, rayonCercle, abscissePoint, ordonnePoint;
 
-        Console.Write("Donner l'abscisse du centre: ");
-        double.TryParse(Console.ReadLine(), out abscCercle);
-        Console.Write("Donner l'ordonné du centre: ");
-        double.TryParse(Console.ReadLine(), out ordonCercle);
-        Console.Write("Donner le rayon: ");
-        double.TryParse(Console.ReadLine(), out rayonCercle);
+        abscisseCercle = SaisieDouble("Donner l'abscisse du centre: ");
+        ordonneCercle = SaisieDouble("Donner l'ordonné du centre: ");
+        rayonCercle = SaisieDouble("Donner le rayon: ");
 
-        Cercle cercleA = new(new(abscCercle, ordonCercle), rayonCercle);
+        Cercle cercleA = new(new(abscisseCercle, ordonneCercle), rayonCercle);
 
-        cercleA.Affiche();
-        cercleA.GetPerimetre();
-        cercleA.GetSurface();
+        Console.WriteLine(cercleA.Affiche());
+        Console.WriteLine($"Le périmétre est : {cercleA.GetPerimetre()}");
+        Console.WriteLine($"La surface est : {cercleA.GetSurface()}");
 
         Console.Write("Donner un point :");
-        Console.Write("\nx: ");
-        double.TryParse(Console.ReadLine(), out absPoint);
-        Console.Write("y: ");
-        double.TryParse(Console.ReadLine(), out ordonPoint);
 
-        Point ptA = new(absPoint,ordonPoint);
+        abscissePoint = SaisieDouble("\nx: ");
+        ordonnePoint = SaisieDouble("y: ");
 
-        ptA.Afficher();
+        Point ptA = new(abscissePoint, ordonnePoint);
 
-        //Console.WriteLine(cercleA.Appartient(ptA));
+        Console.WriteLine(ptA.Afficher());
 
         Console.WriteLine($"Le point {(cercleA.Appartient(ptA) ? "appartient" : "n'appartient pas")} au cercle.");
     }
