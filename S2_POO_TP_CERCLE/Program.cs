@@ -19,16 +19,9 @@ internal class Program
             Console.WriteLine(message);
             string? inputUser = Console.ReadLine();
 
-            if (inputUser == null)
-            {
-                Console.WriteLine("Erreur de saisie");
-            }
+            saisieValide = double.TryParse(inputUser, out value);
 
-            if(double.TryParse(inputUser, out value))
-            {
-                saisieValide = true;
-            }
-            else
+            if (!saisieValide)
             {
                 Console.WriteLine("Erreur de saisie");
             }
@@ -40,13 +33,13 @@ internal class Program
 
     static void Main(string[] args)
     {
-        double abscCercle, ordonCercle, rayonCercle, absPoint, ordonPoint;
+        double abscisseCercle, ordonneCercle, rayonCercle, abscissePoint, ordonnePoint;
 
-        abscCercle = SaisieDouble("Donner l'abscisse du centre: ");
-        ordonCercle = SaisieDouble("Donner l'ordonné du centre: ");
+        abscisseCercle = SaisieDouble("Donner l'abscisse du centre: ");
+        ordonneCercle = SaisieDouble("Donner l'ordonné du centre: ");
         rayonCercle = SaisieDouble("Donner le rayon: ");
 
-        Cercle cercleA = new(new(abscCercle, ordonCercle), rayonCercle);
+        Cercle cercleA = new(new(abscisseCercle, ordonneCercle), rayonCercle);
 
         Console.WriteLine(cercleA.Affiche());
         Console.WriteLine($"Le périmétre est : {cercleA.GetPerimetre()}");
@@ -54,10 +47,10 @@ internal class Program
 
         Console.Write("Donner un point :");
 
-        absPoint = SaisieDouble("\nx: ");
-        ordonPoint = SaisieDouble("y: ");
+        abscissePoint = SaisieDouble("\nx: ");
+        ordonnePoint = SaisieDouble("y: ");
 
-        Point ptA = new(absPoint,ordonPoint);
+        Point ptA = new(abscissePoint, ordonnePoint);
 
         Console.WriteLine(ptA.Afficher());
 
