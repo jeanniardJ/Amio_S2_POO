@@ -43,6 +43,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S2_POO_TP_ANIMAUX", "S2_POO
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S2_POO_INTERFACE", "S2_POO_INTERFACE\S2_POO_INTERFACE.csproj", "{99BA5613-FEC8-4F3D-89B6-B70075BD01E5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S2_POO_TP_PAYMENT", "S2_POO_TP_PAYMENT\S2_POO_TP_PAYMENT.csproj", "{3D8BF6D8-2185-48D8-BFB2-D476C835561D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -129,6 +131,10 @@ Global
 		{99BA5613-FEC8-4F3D-89B6-B70075BD01E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99BA5613-FEC8-4F3D-89B6-B70075BD01E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99BA5613-FEC8-4F3D-89B6-B70075BD01E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D8BF6D8-2185-48D8-BFB2-D476C835561D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D8BF6D8-2185-48D8-BFB2-D476C835561D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D8BF6D8-2185-48D8-BFB2-D476C835561D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D8BF6D8-2185-48D8-BFB2-D476C835561D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
