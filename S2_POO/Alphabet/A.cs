@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace S2_POO.Alphabet
+﻿namespace S2_POO.Alphabet
 {
-    public interface A
+    public class A
     {
         private static int x = 10;
         static int y = 20;
@@ -20,8 +14,6 @@ namespace S2_POO.Alphabet
         {
             Console.WriteLine(y);
         }
-
-        public abstract void Methode1();
 
         public virtual void Methode2() { }
 

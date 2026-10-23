@@ -1,6 +1,7 @@
 ﻿using S2_POO.Animals;
 using S2_POO.Geo_02;
 using S2_POO.Alphabet;
+using S2_POO.Collection;
 
 namespace S2_POO
 {
@@ -71,9 +72,9 @@ namespace S2_POO
             //Console.WriteLine($"Le rectangle à pour aire : {rectangle.CalculerAire()}");
             //Console.WriteLine($"Le cercle à pour aire : {cercle.CalculerAire()}");
 
-            A b = new B();
+            //A b = new B();
 
-            
+            Collection.Collection.STestList();
         }
 
     }
