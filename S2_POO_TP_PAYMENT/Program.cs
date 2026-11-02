@@ -10,13 +10,8 @@
             do
             {
                 Console.WriteLine("Sélectionnez le type de paiement (1: Carte de Crédit, 2: PayPal, 3: Cryptomonnaie) : ");
-
-                isOkTry = int.TryParse(Console.ReadLine(), out choix) ? true : false;
-
-                if(choix != 1 && choix != 2 && choix != 3)
-                {
-                    isOkTry = false;
-                }
+                //retourne true ou false si l'entrée utilisateur est un entier et entre 1 et 3
+                isOkTry = int.TryParse(Console.ReadLine(), out choix) && choix is >= 1 and <= 3;
                 
             } while (!isOkTry);
             

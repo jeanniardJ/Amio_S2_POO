@@ -2,22 +2,24 @@
 {
     internal class GestionnairePaiements
     {
-        private IPaiement Paiement;
+        private readonly IPaiement _paiement;
 
         public GestionnairePaiements(IPaiement paiement)
         {
-            Paiement = paiement;
+            _paiement = paiement;
         }
 
         public void TraiterPaiement()
         {
-            Paiement.EffectuerPaiement();
-            Paiement.Valide();
+            //TODO : effectuer l'affichage des payement
+            _paiement.EffectuerPaiement();
+            _paiement.Valide();
         }
 
         public void AnnulerPaiment()
         {
-            Paiement.AnnulerPaiement();
+            //TODO : effectuer l'affichage des payement
+            _paiement.AnnulerPaiement();
         }
     }
 }

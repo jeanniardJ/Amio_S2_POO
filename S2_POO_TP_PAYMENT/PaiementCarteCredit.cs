@@ -1,21 +1,23 @@
-﻿namespace S2_POO_TP_PAYMENT
+﻿using System.Net.Http.Headers;
+
+namespace S2_POO_TP_PAYMENT
 {
-    internal class PaiementCarteCredit : IPaiement
+    internal class PaiementCarteCredit : APaiement, IPaiement
     {
-        public void AnnulerPaiement()
+        public override int EffectuerPaiement()
         {
-            Console.WriteLine("Annulation du paiement par carte de crédit.");
-        }
+            if (_payementIsValid || _payementIsAnnuler)
+                return _payementProcess;
 
-        public void EffectuerPaiement()
-        {
-            Console.WriteLine("Validation des informations de la carte de crédit...");
-        }
 
-        public bool Valide()
-        {
-            Console.WriteLine("Paiement par carte de crédit effectué avec succès.");
-            return true;
+            _payementProcess = 1;
+            //Temps donner pour un traitement par carte
+            Thread.Sleep(2500);
+
+            //Payement effectuer
+            _payementProcess = 2;
+
+            return _payementProcess;
         }
     }
 }

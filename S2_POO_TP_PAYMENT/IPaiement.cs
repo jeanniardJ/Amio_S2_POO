@@ -3,19 +3,28 @@
     internal interface IPaiement
     {
         /// <summary>
-        /// Paiement validé si aucun échec lors du processus de paiement.
+        /// Determines whether the payment has been successfully completed
+        /// without any errors during the payment process.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// <c>true</c> if the payment is valid; otherwise, <c>false</c>.
+        /// </returns>
         bool Valide();
 
         /// <summary>
-        /// Processes a payment operation.
+        /// Executes the payment process.
         /// </summary>
-        void EffectuerPaiement();
+        /// <returns>
+        /// 0 if the payment failed, 1 if the payment is in progress, 2 if the payment succeeded.
+        /// </returns>
+        int EffectuerPaiement();
 
         /// <summary>
         /// Cancels the payment.
         /// </summary>
-        void AnnulerPaiement();
+        /// <returns>
+        /// <c>true</c> if the payment was successfully canceled; otherwise, <c>false</c>.
+        /// </returns>
+        bool AnnulerPaiement();
     }
 }

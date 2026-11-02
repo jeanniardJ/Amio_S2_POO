@@ -1,21 +1,23 @@
 ﻿namespace S2_POO_TP_PAYMENT
 {
-    internal class PaiementPayPal : IPaiement
+    internal class PaiementPayPal : APaiement, IPaiement
     {
-        public void AnnulerPaiement()
+        public override int EffectuerPaiement()
         {
-            Console.WriteLine("Annulation du paiement par paypal.");
-        }
+            int reslt = 0;
 
-        public void EffectuerPaiement()
-        {
-            Console.WriteLine("Validation des informations de paypal...");
-        }
+            if (AnnulerPaiement() && Valide())
+                return 0;
 
-        public bool Valide()
-        {
-            Console.WriteLine("Paiement par paylpal effectué avec succès.");
-            return true;
+
+            reslt = 1;
+            //Temps donner pour un traitement par carte
+            Thread.Sleep(2000);
+
+            //Payement effectuer
+            reslt = 2;
+
+            return reslt;
         }
     }
 }
