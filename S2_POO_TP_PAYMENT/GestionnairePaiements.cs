@@ -13,9 +13,14 @@
             _typePaiement = _paiement.GetType().Name;
         }
 
+        /// <summary>
+        /// Retrieves the payment type as a string.
+        /// </summary>
+        /// <returns>A string representing the payment type.</returns>
+        /// <exception cref="ArgumentException">Thrown when the payment type is unrecognized.</exception>
         private string GetTypePaiement()
         {
-            string typeResult = "";
+            string typeResult;
 
             switch (_typePaiement)
             {
@@ -35,11 +40,16 @@
             return typeResult;
         }
 
+        /// <summary>
+        /// Processes a payment, validates the payment information, and outputs the transaction status.
+        /// </summary>
+        /// <remarks>Handles multiple payment types and provides user feedback based on the validation
+        /// result.</remarks>
         public void TraiterPaiement()
         {
             string statusDuPaiement = "";
             
-            string resultPaiement = "";
+            string resultPaiement;
 
             resultPaiement = (_typePaiement == "PaiementCarteCredit" || _typePaiement == "PaiementCryptomonnaie") ? $"de la {GetTypePaiement()}" : GetTypePaiement();
 
@@ -62,9 +72,13 @@
             Console.WriteLine($"Paiement par {GetTypePaiement()} effectué avec {(_paiement.Valide() ? "succès":"un échec")}.");
         }
 
+        /// <summary>
+        /// Cancels the payment and logs the result of the operation.
+        /// </summary>
+        /// <remarks>Interacts with the payment system to attempt cancellation and outputs the outcome to
+        /// the console.</remarks>
         public void AnnulerPaiment()
         {
-            //Annulation du paiement par {carte de crédit}.
 
             if (_paiement.AnnulerPaiement())
             {
