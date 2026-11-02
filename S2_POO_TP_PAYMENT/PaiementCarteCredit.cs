@@ -9,7 +9,6 @@ namespace S2_POO_TP_PAYMENT
             if (_payementIsValid || _payementIsAnnuler)
                 return _payementProcess;
 
-
             _payementProcess = 1;
             //Temps donner pour un traitement par carte
             Thread.Sleep(2500);

@@ -23,7 +23,7 @@ namespace S2_POO_TP_PAYMENT
         /// </returns>
         public bool AnnulerPaiement()
         {
-            if (_payementIsValid || _payementProcess == 0)
+            if (_payementIsValid != true || _payementProcess == 0)
             {
                 return _payementIsAnnuler;
             }

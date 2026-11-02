@@ -9,7 +9,6 @@
             if (AnnulerPaiement() && Valide())
                 return 0;
 
-
             reslt = 1;
             //Temps donner pour un traitement par carte
             Thread.Sleep(5000);
