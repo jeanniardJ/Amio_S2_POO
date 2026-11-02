@@ -2,5 +2,12 @@
 {
     internal class Panier
     {
+        private DateTime _dateCreation;
+
+        private int _numeroPanier;
+
+        private List<LignePanier> _lignes = new List<LignePanier>();
+
+
     }
 }
