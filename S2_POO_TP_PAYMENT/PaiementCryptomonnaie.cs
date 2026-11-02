@@ -4,17 +4,18 @@
     {
         public void AnnulerPaiement()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Annulation du paiement par crypto monnaie.");
         }
 
         public void EffectuerPaiement()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Validation des informations de la crypto monnaie...");
         }
 
         public bool Valide()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Paiement par crypto monnaie effectué avec succès.");
+            return true;
         }
     }
 }

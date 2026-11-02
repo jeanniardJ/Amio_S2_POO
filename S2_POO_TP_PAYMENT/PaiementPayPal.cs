@@ -4,17 +4,18 @@
     {
         public void AnnulerPaiement()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Annulation du paiement par paypal.");
         }
 
         public void EffectuerPaiement()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Validation des informations de paypal...");
         }
 
         public bool Valide()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Paiement par paylpal effectué avec succès.");
+            return true;
         }
     }
 }

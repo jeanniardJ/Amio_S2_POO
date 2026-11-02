@@ -4,8 +4,22 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Sélectionnez le type de paiement (1: Carte de Crédit, 2: PayPal, 3: Cryptomonnaie) : ");
-            int choix = int.Parse(Console.ReadLine());
+            int choix;
+            bool isOkTry = false;
+
+            do
+            {
+                Console.WriteLine("Sélectionnez le type de paiement (1: Carte de Crédit, 2: PayPal, 3: Cryptomonnaie) : ");
+
+                isOkTry = int.TryParse(Console.ReadLine(), out choix) ? true : false;
+
+                if(choix != 1 && choix != 2 && choix != 3)
+                {
+                    isOkTry = false;
+                }
+                
+            } while (!isOkTry);
+            
 
             IPaiement paiement = choix switch
             {

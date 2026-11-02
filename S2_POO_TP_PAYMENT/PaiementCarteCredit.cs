@@ -4,17 +4,18 @@
     {
         public void AnnulerPaiement()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Annulation du paiement par carte de crédit.");
         }
 
         public void EffectuerPaiement()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Validation des informations de la carte de crédit...");
         }
 
         public bool Valide()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Paiement par carte de crédit effectué avec succès.");
+            return true;
         }
     }
 }
