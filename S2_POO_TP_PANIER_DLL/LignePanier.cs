@@ -1,17 +1,19 @@
 ﻿namespace S2_POO_TP_PANIER_DLL
 {
-    internal class LignePanier
+    internal class LignePanier(Article article, int quantite)
     {
-        private int Quantite;
+        private readonly Article Article = article;
+
+        private readonly int Quantite = quantite;
 
         public override string ToString()
         {
-            return "";
+            return $"{Article}, quantité : {Quantite} et le montant est {Montant()}";
         }
 
         public double Montant()
         {
-            return 0.0;
+            return Quantite * Article.Prix;
         }
     }
 }

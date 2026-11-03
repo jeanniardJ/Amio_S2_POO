@@ -2,12 +2,44 @@
 {
     internal class Panier
     {
-        private DateTime _dateCreation;
+        private static int CptPanier;
 
-        private int _numeroPanier;
+        private readonly DateTime DateCreation = new DateTime();
 
-        private List<LignePanier> _lignes = new List<LignePanier>();
+        private int NumeroPanier = ++CptPanier;
 
+        private List<LignePanier> Lignes = new List<LignePanier>();
 
+        public void AjouterArticle (Article article, int quantite)
+        {
+            //verifier que l'article existe pas déja dans la collection
+            Lignes.Add(new LignePanier(article, quantite));
+        }
+
+        public void AjouteArticle(Article article)
+        {
+            //verifier que l'article existe pas déja dans la collection
+            Lignes.Add(new LignePanier(article, 1));
+        }
+
+        public void Afficher()
+        {
+
+        }
+
+        public double Total()
+        {
+            return 0.0;
+        }
+
+        public void Vider()
+        {
+
+        }
+
+        public void SupprimerArticle(Article article)
+        {
+
+        }
     }
 }
