@@ -2,7 +2,7 @@
 {
     public class Article(int reference, string designation, double prix) : IComparable<Article>
     {
-        private readonly int Reference = reference;
+        public int Reference { get; } = reference;
 
         private readonly string Designation = designation;
 

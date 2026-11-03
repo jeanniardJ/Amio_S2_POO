@@ -6,7 +6,7 @@
 
         private readonly DateTime DateCreation = new DateTime();
 
-        private readonly int NumeroPanier = ++CptPanier;
+        public int NumeroPanier { get; } = ++CptPanier;
 
         private List<LignePanier> Lignes = new List<LignePanier>();
 
@@ -35,7 +35,7 @@
         {
             foreach (LignePanier articles in Lignes)
             {
-                Console.WriteLine($"{articles}");
+                Console.WriteLine($"{articles}, ");
             }
         }
 
