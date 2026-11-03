@@ -1,0 +1,207 @@
+classDiagram
+class Personnage {
+    <<abstract>>
+    -nom: string
+    -niveau: int
+    -experience: int
+    -pointsDeVie: int
+    -force: int
+    -defense: int
+    -estEnDefense: bool
+    -nombreCoupsRestants: int
+    +Personnage(nom: string, niveau: int, pv: int, force: int, defense: int)
+    +GagnerExperience(experience: int): void
+    +MonterDeNiveau(): void
+    +Attaquer(cible: Personnage): int
+    +SeDefendre(): void
+    +NePlusSeDefendre(): void
+    +SubirDegats(degats: int): void
+    +EstVivant(): bool
+    +CalculerDegats(cible: Personnage): int
+    +ExperiencePourNiveauSuivant(): int
+    +PeutSeDefendre(): bool
+    +ReinitialiserCoupsRestants(): void
+}
+
+class IDefendable {
+    <<interface>>
+    +SeDefendre(): void
+    +NePlusSeDefendre(): void
+}
+
+class IAttaquable {
+    <<interface>>
+    +Attaquer(cible: Personnage): int
+    +CalculerDegats(cible: Personnage): int
+}
+
+class Guerrier {
+    -arme: string
+    +Guerrier(nom: string, niveau: int, pv: int, force: int, defense: int, arme: string)
+    +Attaquer(cible: Personnage): int
+    +CalculerDegats(cible: Personnage): int
+    +SeDefendre(): void
+    +NePlusSeDefendre(): void
+    +PeutSeDefendre(): bool
+    +MonterDeNiveau(): void
+}
+
+class Mage {
+    -mana: int
+    +Mage(nom: string, niveau: int, pv: int, force: int, defense: int, mana: int)
+    +Attaquer(cible: Personnage): int
+    +LancerSort(cible: Personnage, sort: TypeSort): int
+    +CalculerDegats(cible: Personnage): int
+    +PeutSeDefendre(): bool
+    +MonterDeNiveau(): void
+    +Affaiblir(cible: Monstre, duree: int): void
+}
+
+class Assassin {
+    -chanceCritique: double
+    +Assassin(nom: string, niveau: int, pv: int, force: int, defense: int)
+    +Attaquer(cible: Personnage): int
+    +CalculerDegats(cible: Personnage): int
+    +SeDefendre(): void
+    +NePlusSeDefendre(): void
+    +PeutSeDefendre(): bool
+    +MonterDeNiveau(): void
+}
+
+class Archer {
+    -precision: int
+    +Archer(nom: string, niveau: int, pv: int, force: int, defense: int, precision: int)
+    +Attaquer(cible: Personnage): int
+    +CalculerDegats(cible: Personnage): int
+    +PeutSeDefendre(): bool
+    +MonterDeNiveau(): void
+}
+
+class Paladin {
+    -foi: int
+    +Paladin(nom: string, niveau: int, pv: int, force: int, defense: int, foi: int)
+    +Attaquer(cible: Personnage): int
+    +CalculerDegats(cible: Personnage): int
+    +SeDefendre(): void
+    +NePlusSeDefendre(): void
+    +PeutSeDefendre(): bool
+    +MonterDeNiveau(): void
+}
+
+class Monstre {
+    <<abstract>>
+    -nom: string
+    -niveau: int
+    -pointsDeVie: int
+    -force: int
+    -defense: int
+    -type: TypeMonstre
+    +Monstre(nom: string, niveau: int, pv: int, force: int, defense: int, type: TypeMonstre)
+    +Attaquer(cible: Personnage): int
+    +CalculerDegats(cible: Personnage): int
+    +ExperienceDonnee(): int
+}
+
+class Dragon {
+    +Dragon(nom: string, niveau: int, pv: int, force: int, defense: int)
+    +CalculerDegats(cible: Personnage): int
+    +ExperienceDonnee(): int
+}
+
+class Gobelin {
+    +Gobelin(nom: string, niveau: int, pv: int, force: int, defense: int)
+    +CalculerDegats(cible: Personnage): int
+    +ExperienceDonnee(): int
+}
+
+class Squelette {
+    +Squelette(nom: string, niveau: int, pv: int, force: int, defense: int)
+    +CalculerDegats(cible: Personnage): int
+    +ExperienceDonnee(): int
+}
+
+class Orc {
+    +Orc(nom: string, niveau: int, pv: int, force: int, defense: int)
+    +CalculerDegats(cible: Personnage): int
+    +ExperienceDonnee(): int
+}
+
+class Troll {
+    +Troll(nom: string, niveau: int, pv: int, force: int, defense: int)
+    +CalculerDegats(cible: Personnage): int
+    +ExperienceDonnee(): int
+}
+
+class LoupGarou {
+    +LoupGarou(nom: string, niveau: int, pv: int, force: int, defense: int)
+    +CalculerDegats(cible: Personnage): int
+    +ExperienceDonnee(): int
+}
+
+class TypeMonstre {
+    <<enumeration>>
+    DRAGON
+    GOBELIN
+    SQUELETTE
+    ORC
+    TROLL
+    LOUP_GAROU
+}
+
+class TypePersonnage {
+    <<enumeration>>
+    GUERRIER
+    MAGE
+    ASSASSIN
+    ARCHER
+    PALADIN
+}
+
+class TypeSort {
+    <<enumeration>>
+    BOULE_DE_FEU
+    AFFAIBLIR
+    BOUCLIER
+}
+
+class Avantages {
+    <<static>>
+    +AvantagesPersonnages: Dictionary~TypePersonnage, Dictionary~TypeMonstre, double~
+    +AvantagesMonstres: Dictionary~TypeMonstre, Dictionary~TypePersonnage, double~
+    +CalculerBonusAttaquant(attaquant: Personnage, cible: Personnage): double
+}
+
+class Effet {
+    -cible: Personnage
+    -duree: int
+    -typeEffet: TypeEffet
+    -valeur: int
+    +Effet(cible: Personnage, duree: int, typeEffet: TypeEffet, valeur: int)
+    +Appliquer(): void
+    +DecrementerDuree(): void
+}
+
+class TypeEffet {
+    <<enumeration>>
+    AFFAIBLISSEMENT
+    BOUCLIER
+}
+
+Personnage <|-- Guerrier
+Personnage <|-- Mage
+Personnage <|-- Assassin
+Personnage <|-- Archer
+Personnage <|-- Paladin
+Guerrier <|.. IDefendable
+Assassin <|.. IDefendable
+Paladin <|.. IDefendable
+Personnage <|.. IAttaquable
+Monstre <|-- Dragon
+Monstre <|-- Gobelin
+Monstre <|-- Squelette
+Monstre <|-- Orc
+Monstre <|-- Troll
+Monstre <|-- LoupGarou
+Avantages --|> Personnage
+Avantages --|> Monstre
+Equipe "1" *-- "0..*" Personnage

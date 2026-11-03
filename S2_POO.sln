@@ -43,6 +43,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S2_POO_TP_ANIMAUX", "S2_POO
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S2_POO_INTERFACE", "S2_POO_INTERFACE\S2_POO_INTERFACE.csproj", "{99BA5613-FEC8-4F3D-89B6-B70075BD01E5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S2_POO_TP_RPG", "S2_POO_TP_RPG\S2_POO_TP_RPG.csproj", "{66C43969-B581-40A8-B2FD-8C91E6FA273A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -129,6 +131,10 @@ Global
 		{99BA5613-FEC8-4F3D-89B6-B70075BD01E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99BA5613-FEC8-4F3D-89B6-B70075BD01E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99BA5613-FEC8-4F3D-89B6-B70075BD01E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66C43969-B581-40A8-B2FD-8C91E6FA273A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66C43969-B581-40A8-B2FD-8C91E6FA273A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66C43969-B581-40A8-B2FD-8C91E6FA273A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66C43969-B581-40A8-B2FD-8C91E6FA273A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
