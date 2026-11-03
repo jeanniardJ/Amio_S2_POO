@@ -22,35 +22,28 @@ namespace S2_POO_TP_PANIER_CONSOLE
 
             panier.AjouterArticle(article1, 2); // Test cumul des quantités
 
-            Console.WriteLine();
-            Console.WriteLine("Contenu du panier :");
+            Console.WriteLine($"\nContenu du panier {panier.NumeroPanier}:");
             panier.Afficher();
 
-            Console.WriteLine();
-            Console.WriteLine($"Total : {panier.Total():C}");
+            Console.WriteLine($"\nTotal : {panier.Total():C}");
 
-            Console.WriteLine();
-            Console.WriteLine("=== SUPPRESSION D'UN ARTICLE ===");
+            Console.WriteLine("\n=== SUPPRESSION D'UN ARTICLE ===");
 
             panier.SupprimerArticle(article2);
 
             panier.Afficher();
 
-            Console.WriteLine();
-            Console.WriteLine($"Total : {panier.Total():C}");
+            Console.WriteLine($"\nTotal : {panier.Total():C}");
 
-            Console.WriteLine();
-            Console.WriteLine("=== VIDAGE DU PANIER ===");
+            Console.WriteLine("\n=== VIDAGE DU PANIER ===");
 
             panier.Vider();
 
             panier.Afficher();
 
-            Console.WriteLine();
-            Console.WriteLine($"Total : {panier.Total():C}");
+            Console.WriteLine($"\nTotal : {panier.Total():C}");
 
-            Console.WriteLine();
-            Console.WriteLine("Appuyez sur une touche pour quitter...");
+            Console.WriteLine("\nAppuyez sur une touche pour quitter...");
             Console.ReadKey();
         }
     }
