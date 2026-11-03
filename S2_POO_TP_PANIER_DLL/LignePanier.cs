@@ -1,10 +1,10 @@
 ﻿namespace S2_POO_TP_PANIER_DLL
 {
-    internal class LignePanier(Article article, int quantite)
+    public class LignePanier(Article article, int quantite)
     {
-        private readonly Article Article = article;
+        public Article Article { get; }  = article;
 
-        private readonly int Quantite = quantite;
+        public int Quantite { get; set; } = quantite;
 
         public override string ToString()
         {
