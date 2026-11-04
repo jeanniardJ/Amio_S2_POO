@@ -2,7 +2,7 @@
 
 namespace S2_POO_TP_RPG.Models.Personnages
 {
-    //5 instance de personnage max par le joueur
+    //5 instance de personnage max par le joueur (cpt à chaque personnage de tout type crée)
     internal abstract class Personnage : IAttaquables
     {
         protected string _nom;
