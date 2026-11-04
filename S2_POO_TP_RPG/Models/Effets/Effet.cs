@@ -1,6 +1,6 @@
-﻿using S2_POO_TP_RPG.@enum;
+﻿using S2_POO_TP_RPG.Models.Personnages;
 
-namespace S2_POO_TP_RPG
+namespace S2_POO_TP_RPG.Models.Effets
 {
     internal class Effet
     {

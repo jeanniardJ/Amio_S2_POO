@@ -1,4 +1,4 @@
-﻿namespace S2_POO_TP_RPG.@enum
+﻿namespace S2_POO_TP_RPG.Models.Personnages
 {
     internal enum TypePersonnage
     {
