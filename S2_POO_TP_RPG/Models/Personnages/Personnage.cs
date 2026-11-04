@@ -15,7 +15,7 @@ namespace S2_POO_TP_RPG.Models.Personnages
 
         protected int _force;
 
-        protected int _defense;
+        protected int _defense; //Coups encaissables
 
         private bool estEnDefense;
 
@@ -31,7 +31,7 @@ namespace S2_POO_TP_RPG.Models.Personnages
 
         }
 
-        public override string ToString()
+        public override string? ToString()
         {
             return $"""
                  Type : {GetType().Name}

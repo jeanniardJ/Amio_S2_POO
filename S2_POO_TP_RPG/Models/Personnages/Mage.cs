@@ -14,7 +14,7 @@ namespace S2_POO_TP_RPG.Models.Personnages
 
         public override string? ToString()
         {
-            return base.ToString();
+            return $"\nLe mage :\n{base.ToString()},\n Mana : {_mana}\n";
         }
 
         public override int Attaquer(Personnage cible)
@@ -34,7 +34,7 @@ namespace S2_POO_TP_RPG.Models.Personnages
 
         public override bool PeutSeDefendre()
         {
-            return base.PeutSeDefendre();
+            return false;
         }
 
         public override void MonterDeNiveau()

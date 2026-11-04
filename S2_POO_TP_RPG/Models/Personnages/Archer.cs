@@ -25,7 +25,7 @@
         }
         public override bool PeutSeDefendre()
         {
-            return base.PeutSeDefendre();
+            return false;
         }
 
         public override void MonterDeNiveau()
