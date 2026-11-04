@@ -11,15 +11,7 @@
 
         public override string? ToString()
         {
-            return $"""
-                Type : {GetType().Name}
-                Nom : {_nom},
-                Niveau : {_niveau},
-                Points de vie : {_pointsDeVie},
-                Force : {_force},
-                Défence : {_defense}
-                Précision : {_precision}
-                """;
+            return $"\nL'archer :\n{base.ToString()},\n Précision : {_precision}\n";
         }
 
         public override int Attaquer(Personnage cible)

@@ -2,6 +2,7 @@
 
 namespace S2_POO_TP_RPG.Models.Personnages
 {
+    //5 instance de personnage max par le joueur
     internal abstract class Personnage : IAttaquables
     {
         protected string _nom;
@@ -28,6 +29,18 @@ namespace S2_POO_TP_RPG.Models.Personnages
             _force = force;
             _defense = defense;
 
+        }
+
+        public override string ToString()
+        {
+            return $"""
+                 Type : {GetType().Name}
+                 Nom : {_nom},
+                 Niveau : {_niveau},
+                 Points de vie : {_pointsDeVie},
+                 Force : {_force},
+                 Défence : {_defense}
+                """;
         }
 
         public virtual void GagnerExperience(int experience)

@@ -1,6 +1,5 @@
 ﻿using S2_POO_TP_RPG.Models;
 using S2_POO_TP_RPG.Models.Personnages;
-using System.Globalization;
 
 namespace S2_POO_TP_RPG
 {
@@ -54,15 +53,16 @@ namespace S2_POO_TP_RPG
                     } 
                     else
                     {
-                        Console.WriteLine("Le choix posible est de 1 à 5");
+                        Console.WriteLine("\nLe choix posible est de 1 à 5\n");
+                        Thread.Sleep(1000);
                     }
-
+                    
                     Console.Clear();
 
                     if (equipe.CountPerson() > 0)
                     {
-                        Console.WriteLine("\nComposition de l'équipe : ");
-                        equipe.ToString();
+                        Console.WriteLine("Composition de l'équipe :");
+                        Console.WriteLine($"{equipe.ToString()}\n");
                     }
 
                     if (keyInput.KeyChar.ToString().ToLower() == "q")

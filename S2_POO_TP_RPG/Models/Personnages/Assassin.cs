@@ -12,7 +12,7 @@ namespace S2_POO_TP_RPG.Models.Personnages
 
         public override string? ToString()
         {
-            return base.ToString();
+            return $"\nL'assassin :\n{base.ToString()},\n Chance de coûts critique : {_chanceCritique}\n";
         }
 
         public override int Attaquer(Personnage cible)
