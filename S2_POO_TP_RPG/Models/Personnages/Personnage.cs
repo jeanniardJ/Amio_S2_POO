@@ -46,9 +46,10 @@ namespace S2_POO_TP_RPG.Models.Personnages
                 """;
         }
 
+        //Gagne l'exp partager à la mort d'un monstre
         public virtual void GagnerExperience(int experience)
         {
-            throw new NotImplementedException();
+            _experience += experience;
         }
 
         public virtual void MonterDeNiveau()
@@ -88,7 +89,7 @@ namespace S2_POO_TP_RPG.Models.Personnages
             throw new NotImplementedException();
         }
 
-        public int ExperiencePourNiveauSuivatn()
+        public int ExperiencePourNiveauSuivant()
         {
             throw new NotImplementedException();
         }

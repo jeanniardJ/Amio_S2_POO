@@ -1,14 +1,11 @@
 ﻿using S2_POO_TP_RPG.Models;
-using S2_POO_TP_RPG.Models.Montres;
 using S2_POO_TP_RPG.Models.Personnages;
-using static System.Net.Mime.MediaTypeNames;
+using S2_POO_TP_RPG.Models.Sorts;
 
 namespace S2_POO_TP_RPG
 {
     internal class Program
     {
-
-
         //Mode de jeu tour par tour
 
         //TODO : Pour chaque personnage, le joueur choisit entre attaquer ou se défendre (si possible).
@@ -40,6 +37,12 @@ namespace S2_POO_TP_RPG
 
                 ChoixEquipePersonnage();
 
+                //Une fois que l'equipe est selectionné genere l'equipe de montres 
+                //Genere un monstre, puis génere une équipe de monstres plutart
+                CreateTeamMonstre();
+
+                //Une fois les équipes faites, lancer la partie tour par tour
+                RunGame();
 
                 keyInput = Console.ReadKey();
 
@@ -71,13 +74,12 @@ namespace S2_POO_TP_RPG
             bool IsStartGame = false;
             Equipe Equipe = new();
             int nbrPersonnageInEquipe = 0;
-            
             ConsoleKeyInfo keyInput;
 
             //Tant que le joueur n'a pas selectionner 5 personnages ou start le jeux avec au moins 1 personnage
             do
             {
-                
+                //TODO : Rendre le choix des personnages dynamique
                 AffichageCommande($"""
                     Choisir un personnage à inclurer dans l'équipe :
                         1 -> Archer
@@ -125,9 +127,12 @@ namespace S2_POO_TP_RPG
                     IsStartGame = true;
                 }
 
-                
+                if(IsStartGame && keyInput.KeyChar.ToString().ToLower() == "s")
+                {
+                    break;
+                }
 
-            } while (nbrPersonnageInEquipe < 5 || (IsStartGame && keyInput.KeyChar.ToString().ToLower() == "s"));
+            } while (nbrPersonnageInEquipe < 5);
 
             Console.Clear();
             Console.WriteLine($"L'équipe est compléte de {nbrPersonnageInEquipe} personne(s).");
@@ -135,9 +140,107 @@ namespace S2_POO_TP_RPG
         }
 
         //Creation de l'equipe de monstre en fonction du nombre de personnages créés
-        private void CreateTeamMonstre()
+        private static void CreateTeamMonstre()
+        {
+            //
+        }
+
+        private static void RunGame()
         {
 
+
+            //FONCTION TourDeCombat(equipeJoueur, equipeMonstres)
+            //    // --- Phase 1 : Réinitialisation des coups encaissables ---
+            //    POUR CHAQUE personnage DANS equipeJoueur.Membres
+            //        SI personnage.EstVivant()
+            //            personnage.ReinitialiserCoupsRestants()
+            //    // --- Phase 2 : Choix des actions du joueur ---
+            //    POUR CHAQUE personnage DANS equipeJoueur.Membres
+            //        SI personnage.EstVivant()
+            //            SI personnage.PeutSeDefendre()
+            //                AFFICHER "Que fait {personnage.Nom} ? (1: Attaquer / 2: Se défendre)"
+            //                choix = LireChoixUtilisateur()
+            //                SI choix == 2
+            //                    personnage.SeDefendre()
+            //                SINON
+            //                    // --- Choix de la cible pour l'attaque ---
+            //                    AFFICHER "Choisir une cible parmi les monstres :"
+            //                    AFFICHER ListeDesMonstresVivants(equipeMonstres)
+            //                    choixCible = LireChoixUtilisateur()
+            //                    personnage.CibleChoisie = SelectionnerCibleParIndex(equipeMonstres, choixCible)
+            //                    personnage.NePlusSeDefendre()
+            //            SINON
+            //                // --- Choix de la cible pour l'attaque (personnage ne peut pas se défendre) ---
+            //                AFFICHER "Choisir une cible parmi les monstres :"
+            //                AFFICHER ListeDesMonstresVivants(equipeMonstres)
+            //                choixCible = LireChoixUtilisateur()
+            //                personnage.CibleChoisie = SelectionnerCibleParIndex(equipeMonstres, choixCible)
+            //                personnage.NePlusSeDefendre()
+            //                AFFICHER "{personnage.Nom} ne peut pas se défendre et attaquera."
+            //    // --- Phase 3 : Attaque des monstres (priorité aux défenseurs) ---
+            //    POUR CHAQUE monstre DANS equipeMonstres.Membres
+            //        SI monstre.EstVivant()
+            //            // Trouver les personnages en défense et vivants
+            //            personnagesEnDefense = Filtrer(equipeJoueur.Membres,
+            //                p => p.EstVivant() && p.EstEnDefense && p.NombreCoupsRestants > 0)
+            //            // Si des défenseurs existent, cibler l'un d'eux
+            //            SI personnagesEnDefense.NonVide()
+            //                cible = SelectionnerCibleAvecMoinsDeCoupsRestants(personnagesEnDefense)
+            //            SINON
+            //                // Sinon, cibler un personnage vivant aléatoire
+            //                cible = SelectionnerCibleAleatoire(equipeJoueur.Membres, p => p.EstVivant())
+            //            SI cible != null
+            //                degats = monstre.Attaquer(cible)
+            //                cible.SubirDegats(degats)
+            //                // Décrémenter le nombre de coups restants pour la cible
+            //                cible.NombreCoupsRestants--
+            //    // --- Phase 4 : Attaque des personnages ---
+            //    POUR CHAQUE personnage DANS equipeJoueur.Membres
+            //        SI personnage.EstVivant() ET!personnage.EstEnDefense
+            //            // Si le personnage est un Mage, proposer des sorts ou une attaque
+            //            SI personnage EST Mage
+            //                AFFICHER "Choisir une action : (1: Attaquer / 2: Lancer un sort)"
+            //                choix = LireChoixUtilisateur()
+            //                SI choix == 1
+            //                    // Attaquer la cible choisie précédemment
+            //                    degats = personnage.Attaquer(personnage.CibleChoisie)
+            //                    personnage.CibleChoisie.SubirDegats(degats)
+            //                SINON
+            //                    AFFICHER "Quel sort ? (1: Boule de feu / 2: Affaiblir / 3: Bouclier)"
+            //                    choixSort = LireChoixUtilisateur()
+            //                    SI choixSort == 1
+            //                        degats = personnage.LancerSort(personnage.CibleChoisie, TypeSort.BOULE_DE_FEU)
+            //                        personnage.CibleChoisie.SubirDegats(degats)
+            //                    SINON SI choixSort == 2
+            //                        personnage.Affaiblir(personnage.CibleChoisie, 2)
+            //                    SINON SI choixSort == 3
+            //                        personnage.LancerSort(personnage, TypeSort.BOUCLIER)
+            //            SINON
+            //                // Attaquer la cible choisie précédemment
+            //                degats = personnage.Attaquer(personnage.CibleChoisie)
+            //                personnage.CibleChoisie.SubirDegats(degats)
+            //    // --- Phase 5 : Gestion de l'XP et des effets ---
+            //    // Vérifier si des monstres sont morts et répartir l'XP
+            //    xpTotale = 0
+            //    POUR CHAQUE monstre DANS equipeMonstres.Membres
+            //        SI !monstre.EstVivant() ET monstre.EstMarqueCommeMortDansCeTour()
+            //            xpTotale += monstre.ExperienceDonnee()
+            //            monstre.MarquerCommeNonMortDansCeTour()
+            //    SI xpTotale > 0
+            //        nombreVivants = CompterVivants(equipeJoueur)
+            //        xpParPersonnage = xpTotale / nombreVivants
+            //        POUR CHAQUE personnage DANS equipeJoueur.Membres
+            //            SI personnage.EstVivant()
+            //                personnage.GagnerExperience(xpParPersonnage)
+            //    // Appliquer les effets temporaires (exemple: Affaiblir, Bouclier)
+            //    POUR CHAQUE personnage DANS equipeJoueur.Membres + equipeMonstres.Membres
+            //        SI personnage.ADesEffets()
+            //            POUR CHAQUE effet DANS personnage.Effets
+            //                effet.Appliquer()
+            //                effet.DecrementerDuree()
+            //                SI effet.Duree == 0
+            //                    SupprimerEffet(personnage, effet)
+            //FIN FONCTION
         }
     }
 }

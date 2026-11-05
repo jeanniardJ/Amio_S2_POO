@@ -4,6 +4,7 @@ namespace S2_POO_TP_RPG.Models
 {
     internal class Equipe
     {
+        //L'equipe doit avoir un personnage pour commencer la partie
         private List<Personnage> personnages = [];
 
         public override string ToString()
