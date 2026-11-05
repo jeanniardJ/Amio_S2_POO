@@ -3,6 +3,9 @@
 namespace S2_POO_TP_RPG.Models.Personnages
 {
     //5 instance de personnage max par le joueur (cpt à chaque personnage de tout type crée)
+    //Chaque personnage monte de niveau en accumulant de l’expérience(XP).
+    //L'XP est partagée équitablement entre tous les membres vivants de l’équipe à la fin d'un combat.
+
     internal abstract class Personnage : IAttaquables
     {
         protected string _nom;
@@ -11,17 +14,17 @@ namespace S2_POO_TP_RPG.Models.Personnages
 
         protected int _experience;
 
-        protected int _pointsDeVie;
+        private int _pointsDeVie;
 
-        protected int _force;
+        private int _force;
 
-        protected int _defense; //Coups encaissables
+        private int _defense; //Coups encaissables
 
         private bool estEnDefense;
 
         private int nombreCoupsRestants;
 
-        public Personnage(string nom, int niveau, int pv, int force, int defense)
+        protected Personnage(string nom, int niveau, int pv, int force, int defense)
         {
             _nom = nom;
             _niveau = niveau;
@@ -50,6 +53,7 @@ namespace S2_POO_TP_RPG.Models.Personnages
 
         public virtual void MonterDeNiveau()
         {
+            //_pointDeVie,_force,_defense
             throw new NotImplementedException();
         }
 
@@ -70,6 +74,7 @@ namespace S2_POO_TP_RPG.Models.Personnages
 
         public void SubirDegats(int degat)
         {
+            //_pointDeVie,_force,_defense
             throw new NotImplementedException();
         }
 

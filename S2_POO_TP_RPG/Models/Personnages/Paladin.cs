@@ -12,7 +12,7 @@ namespace S2_POO_TP_RPG.Models.Personnages
 
         public override string? ToString()
         {
-            return base.ToString();
+            return $"\nLe Paladin :\n{base.ToString()},\n Foi : {_foi}\n";
         }
         
         public override int Attaquer(Personnage cible)
